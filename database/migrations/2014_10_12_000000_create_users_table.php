@@ -20,7 +20,7 @@ return new class extends Migration
             $table->rememberToken();
             $table->string('image');
             $table->char('gender', 3);
-            $table->integer('age', 3);
+            $table->integer('age');
             $table->string('tel', 11);
             $table->char('postcode', 8);
             $table->string('address', 191);
