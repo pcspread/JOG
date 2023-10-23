@@ -1,0 +1,36 @@
+@charset "UTF-8";
+
+.email-section {
+    width: 50%;
+    max-width: 400px;
+    margin: 100px auto;
+    text-align: center;
+}
+
+.email-title {
+    padding: 24px 0;
+    font-size: 28px;
+}
+
+.email-content {
+    padding: 24px 15px;
+    text-align: left;
+}
+
+.email-click {
+    text-decoration: none;
+    color: #009FC3;
+    font-size: 16px;
+}
+
+.email-click:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+}
+
+@media screen and (max-width: 480px) {
+    .email-section {
+        width: 80%;
+    }
+}

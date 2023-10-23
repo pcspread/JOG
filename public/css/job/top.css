@@ -1,0 +1,34 @@
+@charset "UTF-8";
+
+.top-section {
+    width: 50%;
+    max-width: 400px;
+    margin: 150px auto;
+    padding: 15px;
+}
+
+.top-button {
+    display: block;
+    max-width: 250px;
+    width: 100%;
+    min-height: 52px;
+    line-height: 52px;
+    margin: 15px auto;
+    padding: 5px;
+    border-radius: 3px;
+    text-decoration: none;
+    font-size: 28px;
+    color: #FFF;
+    text-align: center;
+    background-color: #009FC3;
+}
+
+.top-button:hover {
+    opacity: .7;
+}
+
+@media screen and (max-width: 480px) {
+    .top-section {
+        width: 100%;
+    }
+}

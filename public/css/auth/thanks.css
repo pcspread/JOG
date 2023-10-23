@@ -1,0 +1,36 @@
+@charset "UTF-8";
+
+.thanks-section {
+    width: 50%;
+    max-width: 200px;
+    margin: 100px auto;
+    text-align: center;
+}
+
+.thanks-title {
+    padding: 24px 0;
+    font-size: 28px;
+}
+
+.thanks-content {
+    padding: 24px 15px;
+    text-align: center;
+}
+
+.thanks-click {
+    text-decoration: none;
+    color: #009FC3;
+    font-size: 16px;
+}
+
+.thanks-click:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+}
+
+@media screen and (max-width: 480px) {
+    .thanks-section {
+        width: 80%;
+    }
+}

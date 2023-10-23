@@ -1,0 +1,69 @@
+@charset "UTF-8";
+
+.register-section {
+    width: 50%;
+    max-width: 400px;
+    margin: 100px auto;
+    text-align: center;
+}
+
+.register-title {
+    padding: 24px 0;
+    font-size: 28px;
+}
+
+.register-item {
+    text-align: left;
+}
+
+.register-item__title {
+    font-size: 16px;
+}
+
+.register-item__input {
+    display: block;
+    width: 100%;
+    padding: 3px;
+    border-radius: 3px;
+}
+
+.register-item__error {
+    min-height: 24px;
+    color: #FF5555;
+    font-weight: bold;
+}
+
+.register-button {
+    display: block;
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 5px;
+    border: none;
+    border-radius: 3px;
+    background-color: #009FC3;
+    color: #FFF;
+    font-size: 16px;
+}
+
+.register-button:hover {
+    cursor: pointer;
+    opacity: .7;
+}
+
+.register__login-click {
+    text-decoration: none;
+    color: #009FC3;
+    font-size: 16px;
+}
+
+.register__login-click:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+}
+
+@media screen and (max-width: 480px) {
+    .register-section {
+        width: 80%;
+    }
+}
