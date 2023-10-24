@@ -7,6 +7,6 @@
 @section('content')
     <div class="top-section">
         <a class="top-button" href="/jobs">求人を探す</a>
-        <a class="top-button" href="">求人を出す</a>
+        <a class="top-button" href="/shop">求人を出す</a>
     </div>
 @endsection

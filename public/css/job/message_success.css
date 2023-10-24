@@ -1,37 +1,37 @@
 @charset "UTF-8";
 
-.thanks-section {
+.message-section {
     width: 50%;
-    max-width: 200px;
+    max-width: 400px;
     margin: 100px auto;
     text-align: center;
 }
 
-.thanks-title {
+.message-title {
     padding: 24px 0;
     font-size: 28px;
 }
 
-.thanks-content {
+.message-content {
     padding: 24px 15px;
-    text-align: center;
+    text-align: left;
     font-size: 16px;
 }
 
-.thanks-click {
+.message-click {
     text-decoration: none;
     color: #009FC3;
     font-size: 16px;
 }
 
-.thanks-click:hover {
+.message-click:hover {
     text-decoration: underline;
     text-decoration-thickness: 2px;
     text-underline-offset: 3px;
 }
 
 @media screen and (max-width: 480px) {
-    .thanks-section {
+    .message-section {
         width: 80%;
     }
 }

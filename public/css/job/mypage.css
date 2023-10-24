@@ -1,0 +1,73 @@
+@charset "UTF-8";
+
+
+.mypage-section {
+    padding: 15px;
+}
+
+.mypage-title {
+    font-size: 28px;
+}
+
+.mypage__group-wrapper {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.mypage__group {
+    margin: 15px;
+    padding: 15px;
+    border: 3px double #888;
+    border-radius: 3px;
+    background-color: #F6ECE0;
+}
+
+.group-title {
+    font-size: 24px;
+}
+
+.group-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.group-card {
+    position: relative;
+    margin: 15px;
+    padding: 20px;
+    width: 250px;
+    border: 1px solid #888;
+    border-radius: 3px;
+    background-color: #EEF2E5;
+}
+
+.group-genre {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+    /* font-size: 18px; */
+}
+
+.group-name {}
+
+.group-location {}
+
+.group-salary {}
+
+.group-click {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+}
+
+@media screen and (max-width: 768px) {
+    .mypage__group-wrapper {
+        display: block;
+    }
+}

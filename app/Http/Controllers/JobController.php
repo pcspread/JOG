@@ -38,4 +38,15 @@ class JobController extends Controller
     {
         return view('job.job_detail');
     }
+
+    /**
+     * view表示
+     * マイページ
+     * @param void
+     * @return view
+     */
+    public function indexMypage()
+    {
+        return view('job.mypage');
+    }
 }

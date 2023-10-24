@@ -21,6 +21,7 @@
     color: #FFF;
     text-align: center;
     background-color: #009FC3;
+    box-shadow: 0 0 1px 1px #009FC3;
 }
 
 .top-button:hover {
