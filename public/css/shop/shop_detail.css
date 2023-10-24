@@ -2,55 +2,15 @@
 
 .detail-title {
     font-size: 28px;
+    padding-bottom: 15px;
 }
 
 .detail-buttons {
     display: flex;
     justify-content: left;
     align-items: center;
+    text-align: center;
     flex-wrap: wrap;
-}
-
-.detail-favorite__click {
-    border: none;
-    background-color: #FFF;
-    margin: 0 15px;
-    font-size: 28px;
-}
-
-.detail-favorite__click:hover {
-    cursor: pointer;
-}
-
-.detail-email {
-    margin: 0 32px;
-    height: 32px;
-    line-height: 32px;
-    border-radius: 5px;
-    font-size: 32px;
-    text-align: center;
-    text-decoration: none;
-}
-
-.detail-buttons__operate-buttons {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
-    margin: 5px 15px;
-}
-
-.detail-applicant {
-    display: block;
-    width: 120px;
-    height: 32px;
-    line-height: 28px;
-    border-radius: 5px;
-    background-color: #FF5555;
-    box-shadow: 0 0 1px 1px #FF5555;
-    color: #FFF;
-    font-size: 18px;
-    text-decoration: none;
 }
 
 .detail-back {
@@ -67,8 +27,22 @@
     text-decoration: none;
 }
 
-.middle-group {
-    padding: 15px;
+.detail-edit {
+    display: block;
+    width: 120px;
+    height: 32px;
+    line-height: 28px;
+    margin-left: 15px;
+    border-radius: 5px;
+    background-color: #FF5555;
+    box-shadow: 0 0 1px 1px #FF5555;
+    color: #FFF;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.bottom-group {
+    padding: 0 15px 15px;
     font-size: 18px;
     width: 70%;
 }
@@ -98,32 +72,6 @@
 
 .job-content {
     padding-left: 15px;
-    word-wrap: break-word;
-}
-
-.bottom-group {
-    margin: 20px;
-    padding: 15px;
-    border: 3px double #888;
-    border-radius: 3px;
-    width: 70%;
-    background-color: #EEF2E5;
-}
-
-.question-header {
-    font-size: 24px;
-}
-
-.question-label {
-    display: block;
-    padding: 15px 0 5px;
-}
-
-.question-title {
-    word-wrap: break-word;
-}
-
-.question-content {
     word-wrap: break-word;
 }
 

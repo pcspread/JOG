@@ -65,9 +65,6 @@ nav
 burger
 ================================================================================ */
 .burger {
-    position: fixed;
-    top: 0;
-    right: 0;
     width: 40px;
     height: 32px;
     margin: 15px;

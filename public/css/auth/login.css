@@ -25,6 +25,7 @@
     width: 100%;
     padding: 3px;
     border-radius: 3px;
+    border: 2px solid #888;
 }
 
 .login-item__error {
@@ -41,6 +42,7 @@
     border: none;
     border-radius: 3px;
     background-color: #009FC3;
+    box-shadow: 0 0 1px 1px #009FC3;
     color: #FFF;
     font-size: 16px;
 }
