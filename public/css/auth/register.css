@@ -16,10 +16,6 @@
     text-align: left;
 }
 
-.register-item__title {
-    font-size: 16px;
-}
-
 .register-item__input {
     display: block;
     width: 100%;
@@ -44,7 +40,6 @@
     background-color: #009FC3;
     box-shadow: 0 0 1px 1px #009FC3;
     color: #FFF;
-    font-size: 16px;
 }
 
 .register-button:hover {
@@ -55,7 +50,6 @@
 .register__login-click {
     text-decoration: none;
     color: #009FC3;
-    font-size: 16px;
 }
 
 .register__login-click:hover {

@@ -16,7 +16,7 @@ class Job extends Model
     protected $fillable = [
         'user_id',
         'genre_id',
-        'location_id',
+        'area_id',
         'name',
         'content',
         'email',
@@ -24,5 +24,6 @@ class Job extends Model
         'salary',
         'time',
         'shift',
+        'location',
     ];
 }

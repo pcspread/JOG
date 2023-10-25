@@ -1,0 +1,242 @@
+@charset "UTF-8";
+
+.top-wrapper {
+    display: flex;
+    justify-content: left;
+    align-items: flex-start;
+    margin: 0 5px;
+}
+
+.left-group {
+    width: 50%;
+    padding: 15px;
+}
+
+.left-group__top-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.applicant-name {
+    font-size: 28px;
+}
+
+.top-block__buttons {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding: 5px;
+}
+
+.top-block__button {
+    display: block;
+    width: 120px;
+    height: 32px;
+    margin: 5px;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 0 0 1px 1px #009FC3;
+    background-color: #009FC3;
+    color: #FFF;
+    text-align: center;
+}
+
+.top-block__button.success {
+    box-shadow: 0 0 1px 1px #60CCAA;
+    background-color: #60CCAA;
+}
+
+.top-block__button.failure {
+    box-shadow: 0 0 1px 1px #FF5555;
+    background-color: #FF5555;
+}
+
+.top-block__button.back {
+    line-height: 28px;
+    text-decoration: none;
+}
+
+.top-block__button:hover {
+    cursor: pointer;
+    opacity: .7;
+}
+
+.applicant-image {
+    display: block;
+    width: 240px;
+    height: 320px;
+}
+
+.right-group {
+    padding: 15px;
+}
+
+.right-group__wrapper {
+    display: flex;
+    justify-content: left;
+    align-items: flex-start;
+    padding: 15px;
+    margin: 0 15px 15px;
+    border: 2px solid #888;
+    border-radius: 3px;
+    background-color: #EEF2E5;
+}
+
+.right-group__left-block {
+    width: 50%;
+}
+
+.applicant-item {
+    margin-bottom: 15px;
+}
+
+.applicant-item.reason {
+    margin-top: 15px;
+    padding: 15px;
+    border: 2px solid #888;
+    border-radius: 3px;
+    background-color: #EEF2E5;
+}
+
+.applicant-item.appeal {
+    margin: 15px;
+    padding: 15px;
+    border: 2px solid #888;
+    border-radius: 3px;
+    background-color: #EEF2E5;
+}
+
+.applicant-item.experience {
+    margin: 15px;
+    padding: 15px;
+    border: 2px solid #888;
+    border-radius: 3px;
+    background-color: #EEF2E5;
+}
+
+.applicant-title {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.applicant-content {
+    word-wrap: break-word;
+}
+
+.bottom-wrapper {
+    display: flex;
+    justify-content: left;
+    align-items: flex-start;
+}
+
+.applicant-item.bottom {
+    width: 50%;
+}
+
+.bottom-wrapper {
+    margin: 0 20px 20px;
+    padding: 15px;
+    border-radius: 3px;
+    border: 3px double #888;
+    background-color: #F6ECE0;
+}
+
+.bottom-wrapper__title {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.bottom-wrapper-content {
+    margin-bottom: 5px;
+}
+
+.bottom-wrapper__input {
+    padding: 5px;
+    border: 2px solid #888;
+    border-radius: 3px;
+}
+
+.bottom-wrapper__button {
+    display: block;
+    width: 100%;
+    margin-top: 5px;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 0 0 1px 1px #009FC3;
+    background-color: #009FC3;
+    color: #FFF;
+    padding: 5px;
+}
+
+.bottom-wrapper__button:hover {
+    cursor: pointer;
+    opacity: .7;
+}
+
+@media screen and (max-width: 1300px) {
+    .left-group__top-block {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 960px) {
+    .top-wrapper {
+        display: block;
+    }
+
+    .left-group {
+        width: 100%;
+    }
+
+    .right-group {
+        padding: 0 15px;
+    }
+
+    .right-group__wrapper {
+        margin: 0;
+    }
+
+    .applicant-item.reason {
+        margin-bottom: 0;
+    }
+
+    .applicant-item.appeal {
+        margin: 15px 0;
+    }
+
+    .applicant-item.experience {
+        margin: 15px 0;
+    }
+}
+
+@media screen and (max-width: 691px) {
+    .bottom-wrapper__input {
+        width: 100%;
+    }
+
+    .bottom-wrapper__button {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .right-group__wrapper {
+        display: block;
+    }
+
+    .top-block__buttons {
+        display: block;
+        padding: 0;
+    }
+
+    .top-block__button.success,
+    .top-block__button.failure,
+    .top-block__button.back {
+        width: 100%;
+        margin-left: 0;
+    }
+}

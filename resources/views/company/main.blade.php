@@ -1,7 +1,7 @@
 @extends('layouts.default')
 
 @section('css')
-<link rel="stylesheet" href="{{ asset('css/shop/main.css') }}">
+<link rel="stylesheet" href="{{ asset('css/company/main.css') }}">
 @endsection
 
 @section('content')
@@ -10,8 +10,8 @@
     <div class="jobs-wrapper">
         <div class="job-card">
             <h2 class="job-name">コンサートスタッフ</h2>
-            <p class="job-shop">店舗名：店舗A</p>
-            <a class="job-detail" href="/shop/detail/1">求人詳細はこちら</a>
+            <p class="job-company">企業名：店舗A</p>
+            <a class="job-detail" href="/company/detail/1">求人詳細はこちら</a>
             <div class="job-count">
                 <p class="access-count">訪問件数：50件</p>
                 <p class="applicant-count">応募件数：3件</p>
@@ -31,7 +31,7 @@
                     <td class="applicant-content">男性</td>
                     <td class="applicant-content">17歳</td>
                     <td class="applicant-content">
-                        <a class="applicant-button" href="">詳細</a>
+                        <a class="applicant-button" href="/company/list/1">詳細</a>
                     </td>
                 </tr>
                 @endfor

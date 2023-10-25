@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->foreignId('genre_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('location_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('area_id')->constrained()->cascadeOnDelete();
             $table->string('name', 191);
             $table->text('content');
             $table->string('email', 191);
@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('salary');
             $table->string('time');
             $table->string('shift');
+            $table->string('location', 191);
             $table->timestamps();
             $table->softDeletes();
         });
