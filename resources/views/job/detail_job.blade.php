@@ -1,7 +1,7 @@
 @extends('layouts.default')
 
 @section('css')
-<link rel="stylesheet" href="{{ asset('css/shop/shop_detail.css') }}">
+<link rel="stylesheet" href="{{ asset('css/job/detail_job.css') }}">
 @endsection
 
 @section('content')
@@ -9,11 +9,17 @@
     <div class="top-group">
         <h1 class="detail-title">コンサートスタッフ</h1>
         <div class="detail-buttons">
-            <a class="detail-back" href="/shop">戻る</a>
-            <a class="detail-edit" href="/shop/detail/1/edit">修正する</a>
+            <form class="detail-favorite" action="">
+                <button class="detail-favorite__click">♡</button>
+            </form>
+            <a class="detail-email" href="/job/result">✉</a>
+            <div class="detail-buttons__operate-buttons">
+                <a class="detail-applicant" href="/job/send">応募する</a>
+                <a class="detail-back" href="/jobs">戻る</a>
+            </div>
         </div>
     </div>
-    <div class="bottom-group">
+    <div class="middle-group">
         <p class="job-description">
             コンサート会場の設営、撤去、運営と、グッズ販売、片付けを行ってもらいます。勤務時間は2パターンに分かれていて、お好きな方を選んでいただけますが、人数が少ない方にお願いすることがあります。設営作業や撤去作業など、力仕事も多く、元気な方大歓迎です。
         </p>
@@ -52,6 +58,13 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="bottom-group">
+        <h2 class="question-header">質問箱</h2>
+        <label class="question-label">[質問]</label>
+        <p class="question-title">シフトの変更はしやすいですか？</p>
+        <label class="question-label">[回答]</label>
+        <p class="question-content">変更は比較的しやすくなっています。</p>
     </div>
 </div>
 @endsection

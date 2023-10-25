@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\ApplicantController;
-use App\Http\Controllers\ShopController;
+use App\Http\Controllers\CompanyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,10 +52,16 @@ Route::get('/job/result', [ApplicantController::class, 'showResult']);
 Route::get('/mypage', [JobController::class, 'indexMypage']);
 
 // view表示：メインページ
-Route::get('/shop', [ShopController::class, 'indexShop']);
+Route::get('/company', [CompanyController::class, 'indexcompany']);
 
 // view表示：求人詳細ページ(店舗側)
-Route::get('/shop/detail/{id}', [ShopController::class, 'showShop']);
+Route::get('/company/detail/{id}', [CompanyController::class, 'showcompany']);
 
 // view表示：求人詳細修正ページ
-Route::get('/shop/detail/{id}/edit', [ShopController::class, 'editShop']);
+Route::get('/company/detail/{id}/edit', [CompanyController::class, 'editcompany']);
+
+// view表示：求人作成ページ
+Route::get('/company/create', [CompanyController::class, 'createJob']);
+
+// view表示：応募詳細ページ
+Route::get('/company/list/{id}', [CompanyController::class, 'showApplicant']);

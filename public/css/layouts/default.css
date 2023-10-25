@@ -110,6 +110,7 @@ mask
     background-color: #EEE;
     opacity: .7;
     display: none;
+    z-index: 4;
 }
 
 /* ================================================================================
@@ -147,7 +148,7 @@ upper
     }
 
     .header-nav__list {
-        position: fixed;
+        position: absolute;
         top: 0;
         right: 0;
         height: 100%;

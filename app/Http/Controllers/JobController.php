@@ -36,7 +36,7 @@ class JobController extends Controller
      */
     public function showJob($id)
     {
-        return view('job.job_detail');
+        return view('job.detail_job');
     }
 
     /**

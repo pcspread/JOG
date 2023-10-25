@@ -14,7 +14,7 @@ class ApplicantController extends Controller
      */
     public function createApplicant()
     {
-        return view('job.job_applicant');
+        return view('job.applicant_job');
     }
 
     /**
@@ -25,6 +25,6 @@ class ApplicantController extends Controller
      */
     public function showResult()
     {
-        return view('job.message_success');
+        return view('job.success_message');
     }
 }

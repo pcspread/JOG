@@ -12,10 +12,6 @@
     text-align: center;
 }
 
-.applicant-item__title {
-    font-size: 16px;
-}
-
 .applicant-item__image {
     display: block;
     padding: 5px 0;
@@ -80,23 +76,14 @@
     opacity: .7;
 }
 
-.applicant-click {
-    display: block;
-    width: 120px;
-    height: 32px;
-    line-height: 28px;
-    border: none;
-    border-radius: 5px;
+.applicant-button.back {
     background-color: #009FC3;
     box-shadow: 0 0 1px 1px #009FC3;
-    color: #FFF;
-    font-size: 18px;
-    text-decoration: none;
-    text-align: center;
     margin-left: 10px;
 }
 
-.applicant-click:hover {
+.applicant-button.back:hover {
+    cursor: pointer;
     opacity: .7;
 }
 

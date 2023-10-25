@@ -11,7 +11,7 @@
     padding: 5px 15px;
     border-bottom: 1px solid #888;
     background-color: #FFF;
-    z-index: 5;
+    z-index: 2;
 }
 
 .jobs-title__text {
@@ -39,6 +39,7 @@
 }
 
 .search-input {
+    width: 50%;
     border: 2px solid #888;
     border-radius: 3px;
     margin: 3px;
@@ -48,8 +49,9 @@
 
 .search-button {
     margin: 3px;
-    padding: 3px;
     width: 50px;
+    height: 30px;
+    line-height: 25px;
     border: none;
     border-radius: 3px;
     background-color: #000;
@@ -63,11 +65,13 @@
 }
 
 .search-click {
+    height: 30px;
+    line-height: 25px;
     display: inline-block;
     text-decoration: none;
     border: 2px solid #000;
     border-radius: 45px;
-    padding: 0 5px;
+    padding: 0 7px;
     color: #000;
 }
 
@@ -89,7 +93,7 @@
     width: 250px;
     border-radius: 5px;
     background-color: #EEF2E5;
-    border: 1px solid #888;
+    border: 2px solid #888;
 }
 
 .job-name {

@@ -29,6 +29,7 @@
         <nav class="header-nav">
             <ul class="header-nav__list">
                 <li class="header-nav__item">
+                    <a class="header-nav__link" href="/company/create">求人を出す</a>
                     <a class="header-nav__link" href="/jobs">求人一覧</a>
                     <a class="header-nav__link" href="/mypage">マイページ</a>
                     <a class="header-nav__link" href="/register">新規作成</a>
