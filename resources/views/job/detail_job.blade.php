@@ -26,34 +26,34 @@
         <div class="job-group">
             <div class="job-wrapper first">
                 <div class="job-item">
-                    <label class="job-label">給料：</label>
+                    <label class="job-label">給料</label>
                     <p class="job-content">時給1000～1500円</p>
                 </div>
                 <div class="job-item">
-                    <label class="job-label">勤務時間：</label>
+                    <label class="job-label">勤務時間</label>
                     <p class="job-content">①9:00～16:00、②16:00～23:00(休憩1.5h)</p>
                 </div>
                 <div class="job-item">
-                    <label class="job-label">シフト：</label>
+                    <label class="job-label">シフト</label>
                     <p class="job-content">週1日～</p>
                 </div>
             </div>
 
             <div class="job-wrapper second">
                 <div class="job-item">
-                    <label class="job-label">店舗名：</label>
+                    <label class="job-label">店舗名</label>
                     <p class="job-content">店舗A</p>
                 </div>
                 <div class="job-item">
-                    <label class="job-label">勤務場所：</label>
+                    <label class="job-label">勤務場所</label>
                     <p class="job-content">千代田区</p>
                 </div>
                 <div class="job-item">
-                    <label class="job-label">電話番号：</label>
+                    <label class="job-label">電話番号</label>
                     <p class="job-content">08011111111</p>
                 </div>
                 <div class="job-item">
-                    <label class="job-label">メールアドレス：</label>
+                    <label class="job-label">メールアドレス</label>
                     <p class="job-content">campanyA@item.com</p>
                 </div>
             </div>

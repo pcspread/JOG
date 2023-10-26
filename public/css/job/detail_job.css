@@ -67,6 +67,11 @@
     text-decoration: none;
 }
 
+.detail-applicant:hover,
+.detail-back:hover {
+    opacity: .7;
+}
+
 .middle-group {
     padding: 15px;
     font-size: 18px;
@@ -96,6 +101,10 @@
     padding-bottom: 15px;
 }
 
+.job-label {
+    font-weight: bold;
+}
+
 .job-content {
     padding-left: 15px;
     word-wrap: break-word;
@@ -111,7 +120,7 @@
 }
 
 .question-header {
-    font-size: 24px;
+    font-size: 18px;
 }
 
 .question-label {
@@ -128,10 +137,16 @@
 }
 
 @media screen and (max-width: 768px) {
+    .middle-group {
+        width: 100%;
+        padding-bottom: 0;
+    }
+
     .bottom-group {
+        margin: 0 20px;
         padding: 15px;
         font-size: 18px;
-        width: 100%;
+        width: 90%;
     }
 
     .job-group {
