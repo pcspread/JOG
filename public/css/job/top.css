@@ -24,6 +24,11 @@
     box-shadow: 0 0 1px 1px #009FC3;
 }
 
+.top-button.put {
+    background-color: #FF5555;
+    box-shadow: 0 0 1px 1px #FF5555;
+}
+
 .top-button:hover {
     opacity: .7;
 }
