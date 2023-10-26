@@ -25,9 +25,8 @@
 }
 
 .login-item__error {
-    min-height: 24px;
+    min-height: 32px;
     color: #FF5555;
-    font-weight: bold;
 }
 
 .login-button {

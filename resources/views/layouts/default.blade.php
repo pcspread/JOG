@@ -29,11 +29,17 @@
         <nav class="header-nav">
             <ul class="header-nav__list">
                 <li class="header-nav__item">
+                    @if (!empty(Auth::user()['company']))
                     <a class="header-nav__link" href="/company/create">求人を出す</a>
-                    <a class="header-nav__link" href="/jobs">求人一覧</a>
+                    @endif
+                    @if (Auth::check())
                     <a class="header-nav__link" href="/mypage">マイページ</a>
+                    <a class="header-nav__link" href="/logout">ログアウト</a>
+                    @else
+                    <a class="header-nav__link" href="/jobs">求人一覧</a>
                     <a class="header-nav__link" href="/register">新規作成</a>
                     <a class="header-nav__link" href="/login">ログイン</a>
+                    @endif
                 </li>
             </ul>
         </nav>
@@ -50,6 +56,13 @@
     </main>
 
     <aside class="aside">
+        <div class="comment">
+            @if (session('success'))
+            <p class="comment-text success">{{ session('success') }}</p>
+            @elseif (session('danger'))
+            <p class="comment-text danger">{{ session('danger') }}</p>
+            @endif
+        </div>
         <div class="upper">
             <a class="upper-click" href="#top"><</a>
         </div>

@@ -25,10 +25,20 @@
 }
 
 .register-item__error {
-    min-height: 24px;
+    min-height: 32px;
     color: #FF5555;
-    font-weight: bold;
 }
+
+.register-item.checkbox {
+    margin-bottom: 32px;
+}
+
+.register-item__checkbox {
+    transform: scale(2) translateY(-1px);
+    margin: 0 10px 0 5px;
+}
+
+.register-item__checkbox-label {}
 
 .register-button {
     display: block;

@@ -26,7 +26,7 @@
                 こちらは、メール認証用の確認メールです。
                 下記ボタンをクリックいただくと、登録が完了します。
             </p>
-            <a class="email-click" href="/thanks" target="_blank">登録を完了する</a>
+            <a class="email-click" href="http://localhost/thanks?token={{ $token }}" target="_blank">登録を完了する</a>
         </div>
     </main>
 </body>
