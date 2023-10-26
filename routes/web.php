@@ -18,11 +18,17 @@ use App\Http\Controllers\CompanyController;
 |
 */
 
+// view表示：新規登録ページ
+Route::get('/register', [UserController::class, 'indexRegister']);
+
+// 新規登録処理
+Route::post('/register', [UserController::class, 'register']);
+
 // view表示：ログインページ
 Route::get('/login', [UserController::class, 'indexLogin']);
 
-// view表示：新規登録ページ
-Route::get('/register', [UserController::class, 'indexRegister']);
+// ログイン処理
+Route::post('/login', [UserController::class, 'login']);
 
 // view表示：認証メール送信済ページ
 Route::get('/verify/email', [UserController::class, 'indexMail']);
@@ -32,6 +38,9 @@ Route::get('/resend/email', [UserController::class, 'resendMail']);
 
 // view表示：新規登録完了ページ
 Route::get('/thanks', [UserController::class, 'indexThanks']);
+
+// ログアウト処理
+Route::get('/logout', [UserController::class, 'logout']);
 
 // view表示：トップページ
 Route::get('/', [JobController::class, 'indexTop']);
@@ -52,13 +61,13 @@ Route::get('/job/result', [ApplicantController::class, 'showResult']);
 Route::get('/mypage', [JobController::class, 'indexMypage']);
 
 // view表示：メインページ
-Route::get('/company', [CompanyController::class, 'indexcompany']);
+Route::get('/company', [CompanyController::class, 'indexCompany']);
 
 // view表示：求人詳細ページ(店舗側)
-Route::get('/company/detail/{id}', [CompanyController::class, 'showcompany']);
+Route::get('/company/detail/{id}', [CompanyController::class, 'showCompany']);
 
 // view表示：求人詳細修正ページ
-Route::get('/company/detail/{id}/edit', [CompanyController::class, 'editcompany']);
+Route::get('/company/detail/{id}/edit', [CompanyController::class, 'editCompany']);
 
 // view表示：求人作成ページ
 Route::get('/company/create', [CompanyController::class, 'createJob']);

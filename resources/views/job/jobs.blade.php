@@ -41,7 +41,7 @@
                     <option class="search-option" value="">コンサートスタッフ</option>
                     <option class="search-option" value="">カフェ</option>
                 </select>
-                <input class="search-input" type="text">
+                <input class="search-input" type="text" value="{{ Auth::id() }}">
                 <button class="search-button">検索</button>
                 <a class="search-click" href="/jobs">✖</a>
             </form>

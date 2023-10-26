@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+// Auth読込
+use Illuminate\Support\Facades\Auth;
 
 class CompanyController extends Controller
 {
@@ -14,6 +16,15 @@ class CompanyController extends Controller
      */
     public function indexCompany()
     {
+        if (!Auth::check()) {
+            return back()->with('danger', 'ログインが必要です');
+        }
+
+        // 掲載希望のユーザーかどうかのチェック
+        if (empty(Auth::user()['company'])) {
+            return back()->with('danger', '新規登録時に、求人掲載の欄にチェックが必要です');
+        }
+
         return view('company.main');
     }
 
