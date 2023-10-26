@@ -14,7 +14,7 @@ class JobController extends Controller
      */
     public function indexTop()
     {
-        return view('job.top');
+        return view('top');
     }
 
     /**
