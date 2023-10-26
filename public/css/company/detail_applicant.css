@@ -33,7 +33,7 @@
 .top-block__button {
     display: block;
     width: 120px;
-    height: 32px;
+    padding: 5px;
     margin: 5px;
     border: none;
     border-radius: 3px;
@@ -54,7 +54,6 @@
 }
 
 .top-block__button.back {
-    line-height: 28px;
     text-decoration: none;
 }
 

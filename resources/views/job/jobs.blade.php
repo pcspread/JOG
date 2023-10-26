@@ -53,7 +53,7 @@
             <h2 class="job-name">コンサートスタッフ</h2>
             <p class="job-campany">カンパニーA</p>
             <p class="job-location">東京都</p>
-            <p class="job-description">会場設営、撤去、運営、グッズ販売、片付け</p>
+            <p class="job-description">時給1000～1500円</p>
             <a class="job-click" href="/job/detail/1"></a>
         </div>
         @endfor
