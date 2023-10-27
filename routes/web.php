@@ -65,7 +65,10 @@ Route::delete('/job/favorite/{id}', [FavoriteController::class, 'deleteFavorite'
 Route::get('/job/detail/{id}', [JobController::class, 'showJob']);
 
 // view表示：求人応募ページ
-Route::get('/job/send', [ApplicantController::class, 'createApplicant']);
+Route::get('/job/send/{id}', [ApplicantController::class, 'createApplicant']);
+
+// 応募処理
+Route::post('/job/send/{id}', [ApplicantController::class, 'storeApplicant']);
 
 // view表示：応募結果ページ
 Route::get('/job/result', [ApplicantController::class, 'showResult']);

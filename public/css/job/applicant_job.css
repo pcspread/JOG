@@ -3,7 +3,7 @@
 .applicant-section {
     max-width: 500px;
     width: 50%;
-    margin: 50px auto;
+    margin: 0 auto 50px;
 }
 
 .applicant-title {
@@ -46,9 +46,8 @@
 }
 
 .applicant-item__error {
-    min-height: 24px;
+    min-height: 32px;
     color: #FF5555;
-    font-weight: bold;
 }
 
 .applicant-buttons {
@@ -98,8 +97,6 @@
 
 @media screen and (max-width: 480px) {
     .applicant-section {
-        max-width: 500px;
         width: 85%;
-        margin: 50px auto;
     }
 }

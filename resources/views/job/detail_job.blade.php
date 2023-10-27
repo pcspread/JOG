@@ -25,7 +25,7 @@
             <a class="detail-email" href="/job/result">✉</a>
             @endif
             <div class="detail-buttons__operate-buttons">
-                <a class="detail-applicant" href="/job/send">応募する</a>
+                <a class="detail-applicant" href="/job/send/{{ $job['id'] }}">応募する</a>
                 <a class="detail-back" href="/jobs">戻る</a>
             </div>
         </div>

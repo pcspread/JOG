@@ -5,84 +5,134 @@
 @endsection
 
 @section('js')
-<script src="{{ asset('js/job/job_applicant.js') }}" defer></script>
+<script src="{{ asset('js/job/applicant_job.js') }}" defer></script>
 @endsection
 
 @section('content')
 <div class="applicant-section">
-    <form class="applicant-form">
+    <form class="applicant-form" action="/job/send/{{ $id }}" method="post" enctype="multipart/form-data">
+    @csrf
         <h1 class="applicant-title">応募する</h1>
         <div class="applicant-item">
             <label class="applicant-item__title" for="image">証明写真(320px×240px)</label>
-            <img class="applicant-item__image" src="{{ asset('img/applicant_img.png') }}" alt="照明写真">
-            <input class="applicant-item__content image" id="image" type="file" name="image" value="{{ old('image') }}" placeholder="入力欄">
-            <input class="applicant-item__image-select" id="name" type="button" value="画像を選択する">
+            <img class="applicant-item__image" src="{{ !empty(Auth::user()['image']) ? asset('storage/' . Auth::user()['image']) : asset('img/applicant_img.png') }}" alt="照明写真">
+            <input class="applicant-item__content image" type="file" name="image">
+            <input class="applicant-item__image-select" type="button" value="画像を選択する">
             
-            <p class="applicant-item__error"></p>
+            <p class="applicant-item__error">
+                @error('image')
+                    {{ $errors->first('image') }}
+                @enderror
+            </p>
         </div>
         <div class="applicant-item">
             <label class="applicant-item__title" for="name">氏名</label>
-            <input class="applicant-item__content" id="name" type="text" name="name" value="{{ old('name') }}" placeholder="入力欄">
-            <p class="applicant-item__error"></p>
+            <input class="applicant-item__content" id="name" type="text" name="name" value="{{ empty(Auth::user()['name']) ? old('name') : Auth::user()['name'] }}" placeholder="入力欄">
+            <p class="applicant-item__error">
+                @error('name')
+                    {{ $errors->first('name') }}
+                @enderror
+            </p>
         </div>
         <div class="applicant-item">
             <label class="applicant-item__title" for="email">メールアドレス</label>
-            <input class="applicant-item__content" id="email" type="text" name="email" value="{{ old('email') }}" placeholder="入力欄" readonly>
-            <p class="applicant-item__error"></p>
+            <input class="applicant-item__content" id="email" type="text" name="email" value="{{ Auth::user()['email'] }}" placeholder="入力欄" readonly>
+            <p class="applicant-item__error">
+                @error('email')
+                    {{ $errors->first('email') }}
+                @enderror
+            </p>
         </div>
         <div class="applicant-item">
             <label class="applicant-item__title">性別</label>
             <select class="applicant-item__content" name="gender">
-                <option class="applicant-item__option" value="mail">男性</option>
-                <option class="applicant-item__option" value="femail">女性</option>
-                <option class="applicant-item__option" value="other">その他</option>
+                <option class="applicant-item__option" value="男性" @if (old('gender') === '男性' || Auth::user()['gender'] === '男性') selected @endif>男性</option>
+                <option class="applicant-item__option" value="女性" @if (old('gender') === '女性' || Auth::user()['gender'] === '女性') selected @endif>女性</option>
+                <option class="applicant-item__option" value="その他" @if (old('gender') === 'その他' || Auth::user()['gender'] === 'その他') selected @endif>その他</option>
             </select>
-            <p class="applicant-item__error"></p>
+            <p class="applicant-item__error">
+            </p>
         </div>
         <div class="applicant-item">
             <label class="applicant-item__title" for="age">年齢</label>
-            <input class="applicant-item__content" id="age" type="text" name="age" value="{{ old('age') }}" placeholder="入力欄">
-            <p class="applicant-item__error"></p>
+            <input class="applicant-item__content" id="age" type="text" name="age" value="{{ empty(Auth::user()['age']) ? old('age') : Auth::user()['age'] }}" placeholder="入力欄">
+            <p class="applicant-item__error">
+                @error('age')
+                    {{ $errors->first('age') }}
+                @enderror
+            </p>
         </div>
         <div class="applicant-item">
             <label class="applicant-item__title" for="tel">電話番号</label>
-            <input class="applicant-item__content" id="tel" type="text" name="tel" value="{{ old('tel') }}" placeholder="入力欄">
-            <p class="applicant-item__error"></p>
+            <input class="applicant-item__content" id="tel" type="text" name="tel" value="{{ empty(Auth::user()['tel']) ? old('tel') : Auth::user()['tel'] }}" placeholder="入力欄">
+            <p class="applicant-item__error">
+                @error('tel')
+                    {{ $errors->first('tel') }}
+                @enderror
+            </p>
         </div>
         <div class="applicant-item">
             <label class="applicant-item__title" for="postcode">郵便番号</label>
-            <input class="applicant-item__content" id="postcode" type="text" name="postcode" value="{{ old('postcode') }}" placeholder="入力欄">
-            <p class="applicant-item__error"></p>
+            <input class="applicant-item__content" id="postcode" type="text" name="postcode" value="{{ empty(Auth::user()['postcode']) ? old('postcode') : Auth::user()['postcode'] }}" placeholder="入力欄">
+            <p class="applicant-item__error">
+                @error('postcode')
+                    {{ $errors->first('postcode') }}
+                @enderror
+            </p>
         </div>
         <div class="applicant-item">
             <label class="applicant-item__title" for="address">住所</label>
-            <input class="applicant-item__content" id="address" type="text" name="address" value="{{ old('address') }}" placeholder="入力欄">
-            <p class="applicant-item__error"></p>
+            <input class="applicant-item__content" id="address" type="text" name="address" value="{{ empty(Auth::user()['address']) ? old('address') : Auth::user()['address'] }}" placeholder="入力欄">
+            <p class="applicant-item__error">
+                @error('address')
+                    {{ $errors->first('address') }}
+                @enderror
+            </p>
         </div>
         <div class="applicant-item">
             <label class="applicant-item__title" for="building">建物の名前</label>
-            <input class="applicant-item__content" id="building" type="text" name="building" value="{{ old('building') }}" placeholder="入力欄">
-            <p class="applicant-item__error"></p>
+            <input class="applicant-item__content" id="building" type="text" name="building" value="{{ empty(Auth::user()['building']) ? old('building') : Auth::user()['building'] }}" placeholder="入力欄">
+            <p class="applicant-item__error">
+                @error('building')
+                    {{ $errors->first('building') }}
+                @enderror
+            </p>
         </div>
         <div class="applicant-item">
             <label class="applicant-item__title" for="reason">志望動機</label>
             <textarea class="applicant-item__content textarea" name="reason" id="reason" cols="30" rows="7" placeholder="入力欄">{{ old('reason') }}</textarea>
-            <p class="applicant-item__error"></p>
+            <p class="applicant-item__error">
+                @error('reason')
+                    {{ $errors->first('reason') }}
+                @enderror
+            </p>
         </div>
         <div class="applicant-item">
             <label class="applicant-item__title" for="appeal">アピール内容</label>
             <textarea class="applicant-item__content textarea" name="appeal" id="appeal" cols="30" rows="7" placeholder="入力欄">{{ old('appeal') }}</textarea>
-            <p class="applicant-item__error"></p>
+            <p class="applicant-item__error">
+                @error('appeal')
+                    {{ $errors->first('appeal') }}
+                @enderror
+            </p>
         </div>
         <div class="applicant-item">
             <label class="applicant-item__title" for="experience">アルバイト経験</label>
             <textarea class="applicant-item__content textarea" name="experience" id="experience" cols="30" rows="7" placeholder="入力欄">{{ old('experience') }}</textarea>
-            <p class="applicant-item__error"></p>
+            <p class="applicant-item__error">
+                @error('experience')
+                    {{ $errors->first('experience') }}
+                @enderror
+            </p>
         </div>
         <div class="applicant-item">
             <label class="applicant-item__title" for="question">質問内容</label>
             <textarea class="applicant-item__content textarea" name="question" id="question" cols="30" rows="7" placeholder="入力欄">{{ old('question') }}</textarea>
-            <p class="applicant-item__error"></p>
+            <p class="applicant-item__error">
+                @error('question')
+                    {{ $errors->first('question') }}
+                @enderror
+            </p>
         </div>
         <div class="applicant-buttons">
             <button class="applicant-button">応募する</button>
