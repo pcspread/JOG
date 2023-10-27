@@ -17,9 +17,9 @@ return new class extends Migration
             $table->foreignId('job_id')->constrained()->cascadeOnDelete();
             $table->text('appeal');
             $table->text('reason');
-            $table->text('experience');
-            $table->string('question');
-            $table->text('answer');
+            $table->text('experience')->nullable();
+            $table->string('question')->nullable();
+            $table->text('answer')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
