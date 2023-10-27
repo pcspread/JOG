@@ -15,12 +15,16 @@
 .detail-favorite__click {
     border: none;
     background-color: #FFF;
-    margin: 0 15px;
+    margin: 0 0 0 32px;
     font-size: 28px;
 }
 
 .detail-favorite__click:hover {
     cursor: pointer;
+}
+
+.detail-favorite__click.delete {
+    color: #FF5555;
 }
 
 .detail-email {

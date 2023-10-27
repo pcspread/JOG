@@ -9,10 +9,21 @@
     <div class="top-group">
         <h1 class="detail-title">{{ $job->genre['name'] }}</h1>
         <div class="detail-buttons">
-            <form class="detail-favorite" action="">
+            @if (Auth::check())
+            @if (empty($favorite))  
+            <form class="detail-favorite" action="/job/favorite/{{ $job['id'] }}" method="POST">
+            @csrf
                 <button class="detail-favorite__click">♡</button>
             </form>
+            @else
+            <form class="detail-favorite" action="/job/favorite/{{ $job['id'] }}" method="POST">
+            @method('DELETE')
+            @csrf
+                <button class="detail-favorite__click delete">♥</button>
+            </form>
+            @endif            
             <a class="detail-email" href="/job/result">✉</a>
+            @endif
             <div class="detail-buttons__operate-buttons">
                 <a class="detail-applicant" href="/job/send">応募する</a>
                 <a class="detail-back" href="/jobs">戻る</a>
