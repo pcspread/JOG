@@ -17,6 +17,11 @@
             <p class="applicant-item__error"></p>
         </div>
         <div class="applicant-item">
+            <label class="applicant-item__title" for="new_genre">ジャンル(上記に無いジャンルの場合)</label>
+            <input class="applicant-item__content" id="new_genre" type="text" name="new_genre" value="{{ old('new_genre') }}" placeholder="入力欄">
+            <p class="applicant-item__error"></p>
+        </div>
+        <div class="applicant-item">
             <label class="applicant-item__title">勤務地</label>
             <select class="applicant-item__content" name="gender">
                 <option class="applicant-item__option" value="mail">千代田区</option>
