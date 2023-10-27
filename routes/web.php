@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\ApplicantController;
 use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\FavoriteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,6 +54,12 @@ Route::post('/jobs', [JobController::class, 'searchJobs']);
 
 // 求人検索リセット処理
 Route::get('/jobs/reset', [JobController::class, 'searchReset']);
+
+// お気に入り登録処理
+Route::post('/job/favorite/{id}', [FavoriteController::class, 'storeFavorite']);
+
+// お気に入り登録解除処理
+Route::delete('/job/favorite/{id}', [FavoriteController::class, 'deleteFavorite']);
 
 // view表示：求人詳細ページ
 Route::get('/job/detail/{id}', [JobController::class, 'showJob']);

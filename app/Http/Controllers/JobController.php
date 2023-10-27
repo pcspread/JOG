@@ -7,12 +7,15 @@ use Illuminate\Http\Request;
 use App\Models\Job;
 use App\Models\Genre;
 use App\Models\Area;
+use App\Models\Favorite;
+// Auth読込
+use Illuminate\Support\Facades\Auth;
 
 class JobController extends Controller
 {
     /**
      * view表示
-     * トップページｓ
+     * トップページ
      * @param void
      * @return view
      */
@@ -90,7 +93,9 @@ class JobController extends Controller
         // 求人情報の取得
         $job = Job::find($id);
 
-        return view('job.detail_job', compact('job'));
+        $favorite = Favorite::where('user_id', Auth::id())->where('job_id', $job['id'])->first();
+
+        return view('job.detail_job', compact('job', 'favorite'));
     }
 
     /**
