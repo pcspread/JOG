@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 // SoftDeletes読込
-use Illuminate\Database\Eloquest\SoftDeletes;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Applicant extends Model
 {

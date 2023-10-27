@@ -48,6 +48,12 @@ Route::get('/', [JobController::class, 'indexTop']);
 // view表示：求人一覧ページ
 Route::get('/jobs', [JobController::class, 'indexJobs']);
 
+// 求人検索処理
+Route::post('/jobs', [JobController::class, 'searchJobs']);
+
+// 求人検索リセット処理
+Route::get('/jobs/reset', [JobController::class, 'searchReset']);
+
 // view表示：求人詳細ページ
 Route::get('/job/detail/{id}', [JobController::class, 'showJob']);
 

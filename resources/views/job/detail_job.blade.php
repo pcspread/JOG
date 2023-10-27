@@ -7,7 +7,7 @@
 @section('content')
 <div class="detail-section">
     <div class="top-group">
-        <h1 class="detail-title">コンサートスタッフ</h1>
+        <h1 class="detail-title">{{ $job->genre['name'] }}</h1>
         <div class="detail-buttons">
             <form class="detail-favorite" action="">
                 <button class="detail-favorite__click">♡</button>
@@ -21,40 +21,40 @@
     </div>
     <div class="middle-group">
         <p class="job-description">
-            コンサート会場の設営、撤去、運営と、グッズ販売、片付けを行ってもらいます。勤務時間は2パターンに分かれていて、お好きな方を選んでいただけますが、人数が少ない方にお願いすることがあります。設営作業や撤去作業など、力仕事も多く、元気な方大歓迎です。
+            {{ $job['content'] }}
         </p>
         <div class="job-group">
             <div class="job-wrapper first">
                 <div class="job-item">
                     <label class="job-label">給料</label>
-                    <p class="job-content">時給1000～1500円</p>
+                    <p class="job-content">{{ $job['salary'] }}</p>
                 </div>
                 <div class="job-item">
                     <label class="job-label">勤務時間</label>
-                    <p class="job-content">①9:00～16:00、②16:00～23:00(休憩1.5h)</p>
+                    <p class="job-content"></p>{{ $job['time'] }}
                 </div>
                 <div class="job-item">
                     <label class="job-label">シフト</label>
-                    <p class="job-content">週1日～</p>
+                    <p class="job-content">{{ $job['shift'] }}</p>
                 </div>
             </div>
 
             <div class="job-wrapper second">
                 <div class="job-item">
                     <label class="job-label">店舗名</label>
-                    <p class="job-content">店舗A</p>
+                    <p class="job-content">{{ $job['name'] }}</p>
                 </div>
                 <div class="job-item">
                     <label class="job-label">勤務場所</label>
-                    <p class="job-content">千代田区</p>
+                    <p class="job-content">{{ $job['location'] }}</p>
                 </div>
                 <div class="job-item">
                     <label class="job-label">電話番号</label>
-                    <p class="job-content">08011111111</p>
+                    <p class="job-content">{{ $job['tel'] }}</p>
                 </div>
                 <div class="job-item">
                     <label class="job-label">メールアドレス</label>
-                    <p class="job-content">campanyA@item.com</p>
+                    <p class="job-content">{{ $job['email'] }}</p>
                 </div>
             </div>
         </div>
@@ -62,9 +62,9 @@
     <div class="bottom-group">
         <h2 class="question-header">質問箱</h2>
         <label class="question-label">[質問]</label>
-        <p class="question-title">シフトの変更はしやすいですか？</p>
+        <p class="question-title"></p>
         <label class="question-label">[回答]</label>
-        <p class="question-content">変更は比較的しやすくなっています。</p>
+        <p class="question-content"></p>
     </div>
 </div>
 @endsection
