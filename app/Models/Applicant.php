@@ -22,4 +22,14 @@ class Applicant extends Model
         'question',
         'answer',
     ];
+
+    /**
+     * リレーション設定
+     * @param void
+     * @return object
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

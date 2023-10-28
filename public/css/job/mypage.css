@@ -66,6 +66,10 @@
     height: 100%;
 }
 
+.not-card {
+    padding: 15px 0 5px;
+}
+
 @media screen and (max-width: 768px) {
     .mypage__group-wrapper {
         display: block;

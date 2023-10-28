@@ -18,7 +18,7 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        for ($i = 1; $i <= 3; $i++) {
+        for ($i = 1; $i <= 5; $i++) {
             DB::table('users')->insert([
                 'email' => "test{$i}@test.com",
                 'password' => Hash::make('test1111'),

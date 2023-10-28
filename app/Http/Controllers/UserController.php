@@ -107,6 +107,7 @@ class UserController extends Controller
             } else {
                 // セッションID再生成
                 $request->session()->regenerate();
+                // session()->put('visit', 1);
                 return redirect('/')->with('success', 'ログインしました');
             }
         }

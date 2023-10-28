@@ -32,7 +32,7 @@
             @endif
             <div class="detail-buttons__operate-buttons">
                 <a class="detail-applicant" href="/job/send/{{ $job['id'] }}">応募する</a>
-                <a class="detail-back" href="/jobs">戻る</a>
+                <a class="detail-back" href="@if (session('page') === 'jobs') /jobs @elseif (session('page') === 'mypage') /mypage @endif">戻る</a>
             </div>
         </div>
     </div>

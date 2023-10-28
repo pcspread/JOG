@@ -78,7 +78,7 @@ class JobSeeder extends Seeder
                 'updated_at' => Carbon::now()->__toString(),
             ],
             [
-                'user_id' => '1',
+                'user_id' => '2',
                 'genre_id' => '4',
                 'area_id' => '1',
                 'name' => '企業5',
@@ -93,7 +93,7 @@ class JobSeeder extends Seeder
                 'updated_at' => Carbon::now()->__toString(),
             ],
             [
-                'user_id' => '1',
+                'user_id' => '2',
                 'genre_id' => '2',
                 'area_id' => '8',
                 'name' => '企業6',
@@ -108,7 +108,7 @@ class JobSeeder extends Seeder
                 'updated_at' => Carbon::now()->__toString(),
             ],
             [
-                'user_id' => '1',
+                'user_id' => '2',
                 'genre_id' => '2',
                 'area_id' => '4',
                 'name' => '企業7',
@@ -123,7 +123,7 @@ class JobSeeder extends Seeder
                 'updated_at' => Carbon::now()->__toString(),
             ],
             [
-                'user_id' => '1',
+                'user_id' => '2',
                 'genre_id' => '2',
                 'area_id' => '1',
                 'name' => '企業8',
@@ -138,7 +138,7 @@ class JobSeeder extends Seeder
                 'updated_at' => Carbon::now()->__toString(),
             ],
             [
-                'user_id' => '1',
+                'user_id' => '3',
                 'genre_id' => '5',
                 'area_id' => '16',
                 'name' => '企業9',
@@ -153,7 +153,7 @@ class JobSeeder extends Seeder
                 'updated_at' => Carbon::now()->__toString(),
             ],
             [
-                'user_id' => '1',
+                'user_id' => '3',
                 'genre_id' => '6',
                 'area_id' => '13',
                 'name' => '企業10',
@@ -168,7 +168,7 @@ class JobSeeder extends Seeder
                 'updated_at' => Carbon::now()->__toString(),
             ],
             [
-                'user_id' => '1',
+                'user_id' => '3',
                 'genre_id' => '1',
                 'area_id' => '13',
                 'name' => '企業11',
@@ -183,7 +183,7 @@ class JobSeeder extends Seeder
                 'updated_at' => Carbon::now()->__toString(),
             ],
             [
-                'user_id' => '1',
+                'user_id' => '3',
                 'genre_id' => '3',
                 'area_id' => '3',
                 'name' => '企業12',
@@ -198,7 +198,7 @@ class JobSeeder extends Seeder
                 'updated_at' => Carbon::now()->__toString(),
             ],
             [
-                'user_id' => '1',
+                'user_id' => '4',
                 'genre_id' => '2',
                 'area_id' => '5',
                 'name' => '企業13',
@@ -213,7 +213,7 @@ class JobSeeder extends Seeder
                 'updated_at' => Carbon::now()->__toString(),
             ],
             [
-                'user_id' => '1',
+                'user_id' => '4',
                 'genre_id' => '1',
                 'area_id' => '1',
                 'name' => '企業14',
@@ -228,7 +228,7 @@ class JobSeeder extends Seeder
                 'updated_at' => Carbon::now()->__toString(),
             ],
             [
-                'user_id' => '1',
+                'user_id' => '4',
                 'genre_id' => '4',
                 'area_id' => '1',
                 'name' => '企業15',
@@ -243,7 +243,7 @@ class JobSeeder extends Seeder
                 'updated_at' => Carbon::now()->__toString(),
             ],
             [
-                'user_id' => '1',
+                'user_id' => '4',
                 'genre_id' => '2',
                 'area_id' => '8',
                 'name' => '企業16',
@@ -258,7 +258,7 @@ class JobSeeder extends Seeder
                 'updated_at' => Carbon::now()->__toString(),
             ],
             [
-                'user_id' => '1',
+                'user_id' => '5',
                 'genre_id' => '2',
                 'area_id' => '4',
                 'name' => '企業17',
@@ -273,7 +273,7 @@ class JobSeeder extends Seeder
                 'updated_at' => Carbon::now()->__toString(),
             ],
             [
-                'user_id' => '1',
+                'user_id' => '5',
                 'genre_id' => '2',
                 'area_id' => '1',
                 'name' => '企業18',
@@ -288,7 +288,7 @@ class JobSeeder extends Seeder
                 'updated_at' => Carbon::now()->__toString(),
             ],
             [
-                'user_id' => '1',
+                'user_id' => '5',
                 'genre_id' => '5',
                 'area_id' => '16',
                 'name' => '企業19',
@@ -303,7 +303,7 @@ class JobSeeder extends Seeder
                 'updated_at' => Carbon::now()->__toString(),
             ],
             [
-                'user_id' => '1',
+                'user_id' => '5',
                 'genre_id' => '6',
                 'area_id' => '13',
                 'name' => '企業20',

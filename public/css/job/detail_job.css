@@ -81,6 +81,7 @@
 .detail-applicant:hover,
 .detail-back:hover {
     opacity: .7;
+    cursor: pointer;
 }
 
 .middle-group {
