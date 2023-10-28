@@ -21,10 +21,14 @@ class ApplicantController extends Controller
      * view表示
      * 求人応募ページ
      * @param int $id
-     * @return view
+     * @return back,view
      */
     public function createApplicant($id)
     {
+        // ログインユーザーでない場合
+        if (!Auth::check()) {
+            return back()->with('danger', '応募にはログインが必要です');
+        }
         return view('job.applicant_job', compact('id'));
     }
 
@@ -36,14 +40,21 @@ class ApplicantController extends Controller
      */
     public function storeApplicant($id, ApplicantRequest $request)
     {
+        // 既に応募している場合
+        if (!empty(Applicant::where('user_id', Auth::id())->where('job_id', $id)->first())) {
+            return back()->with('danger', '応募済の求人です');
+        }
+
         // form情報取得
         $formUser = $request->only(['name', 'postcode', 'address', 'building', 'gender', 'age', 'tel']);
         $formApplicant = $request->only(['appeal', 'reason', 'experience', 'question']);
 
         // 画像情報の取得
         $image = $request->file('image');
+
         // 画像ファイルの保存パスを生成
         $path = $image->store('images', 'public');
+        
         // トランザクション開始
         DB::beginTransaction();
 
@@ -88,11 +99,19 @@ class ApplicantController extends Controller
     /**
      * view表示
      * 応募結果ページ
-     * @param void
-     * @return view
+     * @param int $id
+     * @return back,view
      */
-    public function showResult()
+    public function showResult($id)
     {
+        // 応募情報の取得
+        $applicant = Applicant::where('user_id', Auth::id())->where('job_id', $id)->first();
+
+        // 応募結果が無い場合
+        if (empty($applicant['result'])) {
+            return back()->with('danger', '応募結果が未着です');
+        }
+
         return view('job.success_message');
     }
 }

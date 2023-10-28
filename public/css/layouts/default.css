@@ -117,9 +117,10 @@ mask
 comment
 ================================================================================ */
 .comment {
-    position: fixed;
+    position: absolute;
     top: 10vh;
     right: 0;
+    z-index: 10;
 }
 
 .comment-text {

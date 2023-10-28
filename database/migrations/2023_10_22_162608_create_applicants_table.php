@@ -20,6 +20,7 @@ return new class extends Migration
             $table->text('experience')->nullable();
             $table->string('question')->nullable();
             $table->text('answer')->nullable();
+            $table->tinyInteger('result')->unsigned()->nullable()->comment('0:未通過,1:通過');
             $table->timestamps();
             $table->softDeletes();
         });

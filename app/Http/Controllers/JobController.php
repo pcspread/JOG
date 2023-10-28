@@ -8,6 +8,7 @@ use App\Models\Job;
 use App\Models\Genre;
 use App\Models\Area;
 use App\Models\Favorite;
+use App\Models\Applicant;
 // Auth読込
 use Illuminate\Support\Facades\Auth;
 
@@ -93,9 +94,12 @@ class JobController extends Controller
         // 求人情報の取得
         $job = Job::find($id);
 
+        // 応募情報の取得
+        $applicant = Applicant::where('user_id', Auth::id())->where('job_id', $id)->first();
+
         $favorite = Favorite::where('user_id', Auth::id())->where('job_id', $job['id'])->first();
 
-        return view('job.detail_job', compact('job', 'favorite'));
+        return view('job.detail_job', compact('job', 'favorite', 'applicant'));
     }
 
     /**

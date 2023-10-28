@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="{{ asset('css/job/jobs.css') }}">
 @endsection
 
-@section('content')ｓ
+@section('content')
 <div class="jobs-section">
     <div class="search-group">
         <div class="jobs-title">
