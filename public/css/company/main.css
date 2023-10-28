@@ -9,8 +9,28 @@
     min-width: 700px;
 }
 
-.main-title__name {
-    margin-left: 15px;
+.main-title__group {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin: 5px 0 0 15px;
+}
+
+.main-title__button {
+    margin-left: 52px;
+    width: 150px;
+    height: 32px;
+    line-height: 28px;
+    box-shadow: 0 0 1px 1px #FF5555;
+    border-radius: 3px;
+    background-color: #FF5555;
+    text-decoration: none;
+    color: #FFF;
+    text-align: center;
+}
+
+.main-title__button:hover {
+    opacity: .7;
 }
 
 .job-card {

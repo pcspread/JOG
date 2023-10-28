@@ -85,8 +85,14 @@ Route::get('/company/detail/{id}', [CompanyController::class, 'showCompany']);
 // view表示：求人詳細修正ページ
 Route::get('/company/detail/{id}/edit', [CompanyController::class, 'editCompany']);
 
+// 求人詳細更新処理
+Route::post('/company/detail/{id}/edit', [CompanyController::class, 'updateCompany']);
+
 // view表示：求人作成ページ
 Route::get('/company/create', [CompanyController::class, 'createJob']);
+
+// 求人作成処理
+Route::post('/company/create', [CompanyController::class, 'storeJob']);
 
 // view表示：応募詳細ページ
 Route::get('/company/list/{id}', [CompanyController::class, 'showApplicant']);

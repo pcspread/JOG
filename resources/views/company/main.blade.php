@@ -10,7 +10,11 @@ use App\Models\Applicant;
 
 @section('content')
 <div class="main-section">
-    <h1 class="main-title__name">ユーザー２様</h1>
+    <div class="main-title__group">
+        <h1 class="main-title__name">ユーザー２様</h1>
+        <a class="main-title__button" href="/company/create">求人を出す</a>
+    </div>
+    
     <div class="jobs-wrapper">
         @foreach ($jobs as $job)
         <div class="job-card">

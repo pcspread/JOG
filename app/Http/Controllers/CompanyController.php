@@ -7,6 +7,14 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 // Model読込
 use App\Models\Job;
+use App\Models\Genre;
+use App\Models\Area;
+// Request読込
+use App\Http\Requests\JobRequest;
+// DB読込
+use Illuminate\Support\Facades\DB;
+// Log読込
+use Illuminate\Support\Facades\Log;
 
 class CompanyController extends Controller
 {
@@ -41,7 +49,10 @@ class CompanyController extends Controller
      */
     public function showCompany($id)
     {
-        return view('company.detail_job');
+        // 求人情報の取得
+        $job = Job::find($id);
+
+        return view('company.detail_job', compact('job'));
     }
 
     /**
@@ -52,7 +63,81 @@ class CompanyController extends Controller
      */
     public function editCompany($id)
     {
-        return view('company.edit_job');
+        // 求人情報の取得
+        $job = Job::find($id);
+
+        // ジャンル情報の取得
+        $genres = Genre::all();
+
+        // エリア情報の取得
+        $areas = Area::all();
+
+        return view('company.edit_job', compact('job', 'genres', 'areas'));
+    }
+
+    /**
+     * 求人詳細更新処理
+     * @param int $id
+     * @param object $request
+     * @return view
+     */
+    public function updateCompany($id, JobRequest $request)
+    {
+        // フォーム情報の取得
+        $form = $request->only(['genre_id','area_id','name','content','email','tel','salary','time','shift','location']);
+
+        // トランザクション開始
+        DB::beginTransaction();
+
+        try {
+            // 新しいジャンルの入力がある場合
+            if (!empty($request['new_genre'])) {
+                // 新しいジャンル情報の有無を確認
+                $new_genre = Genre::where('name', $request['new_genre'])->first();
+                // 新しいジャンルが既に存在する場合
+                if (!empty($new_genre)) {
+                    $genre = $new_genre['id'];
+                } else {
+                    // create処理
+                    Genre::create([
+                        'name' => $request['new_genre'],
+                    ]);
+                    // ジャンルIDの格納
+                    $genre = Genre::where('name', $request['new_genre'])->first()['id'];
+                }
+                
+            } else {
+                $genre = $form['genre_id'];
+            }
+    
+            // create処理
+            Job::update([
+                'user_id' => Auth::id(),
+                'genre_id' => $genre,
+                'area_id' => $form['area_id'],
+                'name' => $form['name'],
+                'content' => $form['content'],
+                'email' => $form['email'],
+                'tel' => $form['tel'],
+                'salary' => $form['salary'],
+                'time' => $form['time'],
+                'shift' => $form['shift'],
+                'location' => $form['location'],
+            ]);
+            DB::commit();
+        } catch (\PDOException $e) {
+            DB::rollback();
+            // エラー内容の保存
+            Log::error('データベース接続失敗', [
+                'content' => $e->getMessage(),
+                'location' => $e->getFile(),
+                'row' => $e->getLine(),
+            ]);
+        }
+        
+        return back()->with('success', '求人を更新しました');
+
+
     }
 
     /**
@@ -63,7 +148,75 @@ class CompanyController extends Controller
      */
     public function createJob()
     {
-        return view('company.create_job');
+        // ジャンル情報の取得
+        $genres = Genre::all();
+
+        // エリア情報の取得
+        $areas = Area::all();
+    
+        return view('company.create_job', compact('genres', 'areas'));
+    }
+
+    /**
+     * 求人作成処理
+     * @param object $request
+     * @return back
+     */
+    public function storeJob(JobRequest $request)
+    {
+        // フォーム情報の取得
+        $form = $request->only(['genre_id','area_id','name','content','email','tel','salary','time','shift','location']);
+
+        // トランザクション開始
+        DB::beginTransaction();
+
+        try {
+            // 新しいジャンルの入力がある場合
+            if (!empty($request['new_genre'])) {
+                // 新しいジャンル情報の有無を確認
+                $new_genre = Genre::where('name', $request['new_genre'])->first();
+                // 新しいジャンルが既に存在する場合
+                if (!empty($new_genre)) {
+                    $genre = $new_genre['id'];
+                } else {
+                    // create処理
+                    Genre::create([
+                        'name' => $request['new_genre'],
+                    ]);
+                    // ジャンルIDの格納
+                    $genre = Genre::where('name', $request['new_genre'])->first()['id'];
+                }
+                
+            } else {
+                $genre = $form['genre_id'];
+            }
+    
+            // create処理
+            Job::create([
+                'user_id' => Auth::id(),
+                'genre_id' => $genre,
+                'area_id' => $form['area_id'],
+                'name' => $form['name'],
+                'content' => $form['content'],
+                'email' => $form['email'],
+                'tel' => $form['tel'],
+                'salary' => $form['salary'],
+                'time' => $form['time'],
+                'shift' => $form['shift'],
+                'location' => $form['location'],
+            ]);
+            DB::commit();
+        } catch (\PDOException $e) {
+            DB::rollback();
+            // エラー内容の保存
+            Log::error('データベース接続失敗', [
+                'content' => $e->getMessage(),
+                'location' => $e->getFile(),
+                'row' => $e->getLine(),
+            ]);
+        }
+        
+        return back()->with('success', '求人を作成しました');
     }
 
     /**
@@ -74,6 +227,7 @@ class CompanyController extends Controller
      */
     public function showApplicant($id)
     {
+        
         return view('company.detail_applicant');
     }
 }
