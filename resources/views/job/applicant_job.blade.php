@@ -15,7 +15,7 @@
         <h1 class="applicant-title">応募する</h1>
         <div class="applicant-item">
             <label class="applicant-item__title" for="image">証明写真(320px×240px)</label>
-            <img class="applicant-item__image" src="{{ !empty(Auth::user()['image']) ? asset('storage/' . Auth::user()['image']) : asset('img/applicant_img.png') }}" alt="照明写真">
+            <img class="applicant-item__image" src="{{ asset('img/applicant_img.png') }}" alt="照明写真">
             <input class="applicant-item__content image" type="file" name="image">
             <input class="applicant-item__image-select" type="button" value="画像を選択する">
             
@@ -135,8 +135,8 @@
             </p>
         </div>
         <div class="applicant-buttons">
-            <button class="applicant-button">応募する</button>
-            <a class="applicant-click" href="/job/detail/1">戻る</a>
+            <button class="applicant-button" onClick="return confirmApplicant()">応募する</button>
+            <a class="applicant-click" href="/job/detail/{{ $id }}">戻る</a>
         </div>
     </form>
 </div>

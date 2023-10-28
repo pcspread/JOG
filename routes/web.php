@@ -71,7 +71,7 @@ Route::get('/job/send/{id}', [ApplicantController::class, 'createApplicant']);
 Route::post('/job/send/{id}', [ApplicantController::class, 'storeApplicant']);
 
 // view表示：応募結果ページ
-Route::get('/job/result', [ApplicantController::class, 'showResult']);
+Route::get('/job/result/{id}', [ApplicantController::class, 'showResult']);
 
 // view表示：マイページ
 Route::get('/mypage', [JobController::class, 'indexMypage']);

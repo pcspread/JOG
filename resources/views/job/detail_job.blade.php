@@ -10,19 +10,25 @@
         <h1 class="detail-title">{{ $job->genre['name'] }}</h1>
         <div class="detail-buttons">
             @if (Auth::check())
-            @if (empty($favorite))  
-            <form class="detail-favorite" action="/job/favorite/{{ $job['id'] }}" method="POST">
-            @csrf
-                <button class="detail-favorite__click">♡</button>
-            </form>
-            @else
-            <form class="detail-favorite" action="/job/favorite/{{ $job['id'] }}" method="POST">
-            @method('DELETE')
-            @csrf
-                <button class="detail-favorite__click delete">♥</button>
-            </form>
-            @endif            
-            <a class="detail-email" href="/job/result">✉</a>
+                @if (empty($favorite))  
+                <form class="detail-favorite" action="/job/favorite/{{ $job['id'] }}" method="POST">
+                @csrf
+                    <button class="detail-favorite__click">♡</button>
+                </form>
+                @else
+                <form class="detail-favorite" action="/job/favorite/{{ $job['id'] }}" method="POST">
+                @method('DELETE')
+                @csrf
+                    <button class="detail-favorite__click delete">♥</button>
+                </form>
+                @endif
+
+                @if (!empty($applicant) && empty($applicant['result']))
+                <a class="detail-email" href="/job/result/{{ $job['id'] }}">✉</a>
+                @endif
+                @if (!empty($applicant['result']))
+                <a class="detail-email arrival" href="/job/result/{{ $job['id'] }}">✉</a>
+                @endif
             @endif
             <div class="detail-buttons__operate-buttons">
                 <a class="detail-applicant" href="/job/send/{{ $job['id'] }}">応募する</a>
@@ -70,12 +76,14 @@
             </div>
         </div>
     </div>
+    @if (!empty($applicant['question']))
     <div class="bottom-group">
         <h2 class="question-header">質問箱</h2>
         <label class="question-label">[質問]</label>
-        <p class="question-title"></p>
+        <p class="question-title">{{ $applicant['question'] }}</p>
         <label class="question-label">[回答]</label>
-        <p class="question-content"></p>
+        <p class="question-content">{{ $applicant['answer'] }}</p>
     </div>
+    @endif
 </div>
 @endsection

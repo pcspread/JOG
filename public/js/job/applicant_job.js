@@ -39,3 +39,14 @@ function displayImage() {
     });
 }
 displayImage();
+
+/**
+ * 応募の送信確認をする
+ */
+function confirmApplicant() {
+    if (window.confirm('応募してもよろしいですか？')) {
+        return true;
+    } else {
+        return false;
+    }
+}
