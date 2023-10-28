@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 // Auth読込
 use Illuminate\Support\Facades\Auth;
+// Model読込
+use App\Models\Job;
 
 class CompanyController extends Controller
 {
@@ -25,7 +27,10 @@ class CompanyController extends Controller
             return back()->with('danger', '新規登録時に、求人掲載の欄にチェックが必要です');
         }
 
-        return view('company.main');
+        // 求人情報の取得
+        $jobs = Job::where('user_id', Auth::id())->get();
+
+        return view('company.main', compact('jobs'));
     }
 
     /**

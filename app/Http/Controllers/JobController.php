@@ -33,6 +33,9 @@ class JobController extends Controller
      */
     public function indexJobs()
     {
+        // ページ遷移用の値の格納
+        session()->put('page', 'jobs');
+
         // 求人情報の取得
         $jobs = Job::all();
 
@@ -91,6 +94,17 @@ class JobController extends Controller
      */
     public function showJob($id)
     {
+        // // 訪問件数調査
+        // $visit = session('visit') + 1;
+        // session()->put('visit', $visit);
+        // Visit::where('job_id')
+        // // 訪問件数が1の場合
+        // if (session('visit') === 1) {
+        //     Visit::create([
+        //         'job_id' => $id,
+        //         'count' => ,
+        //     ]):
+        // }
         // 求人情報の取得
         $job = Job::find($id);
 
@@ -110,6 +124,40 @@ class JobController extends Controller
      */
     public function indexMypage()
     {
-        return view('job.mypage');
+        // ページ遷移用の値の格納
+        session()->put('page', 'mypage');
+
+        // お気に入り情報の取得
+        $itemsFavorite = Favorite::where('user_id', Auth::id())->get();
+        
+        // お気に入りレコード格納用の変数を定義
+        $recodesFavorite = [];
+
+        // レコード情報の格納
+        foreach($itemsFavorite as $favorite) {
+            if (Job::find($favorite['job_id'])) {
+                $recodesFavorite[] = Job::find($favorite['job_id']);
+            }
+        }
+        // コレクションの作成
+        $favorites = collect($recodesFavorite);
+
+        // 応募中情報の取得
+        $itemsApplicant = Applicant::where('user_id', Auth::id())->get();
+        
+        // 応募中レコードを格納する変数を定義
+        $recordsApplicant = [];
+
+        // レコード情報の格納
+        foreach($itemsApplicant as $applicant) {
+            if (Job::find($applicant['job_id'])) {
+                $recordsApplicant[] = Job::find($applicant['job_id']);
+            }
+        }
+
+        // コレクション作成
+        $applicants = collect($recordsApplicant);
+        
+        return view('job.mypage', compact('favorites', 'applicants'));
     }
 }

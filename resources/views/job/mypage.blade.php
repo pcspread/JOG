@@ -11,29 +11,35 @@
         <div class="mypage__group">
             <h2 class="group-title">お気に入り</h2>
             <div class="group-cards">
-                @for ($i = 0; $i < 4; $i++)
+                @foreach ($favorites as $favorite)
                 <div class="group-card">
-                    <h3 class="group-genre">コンサートスタッフ</h3>
-                    <p class="group-name">店舗A</p>
-                    <p class="group-location">東京都</p>
-                    <p class="group-salary">時給1000～1500円</p>
-                    <a class="group-click" href="/job/detail/1"></a>
+                    <h3 class="group-genre">{{ $favorite->genre['name'] }}</h3>
+                    <p class="group-name">{{ $favorite['name'] }}</p>
+                    <p class="group-location">{{ $favorite->area['name'] }}</p>
+                    <p class="group-salary">{{ $favorite['salary'] }}</p>
+                    <a class="group-click" href="/job/detail/{{ $favorite['id'] }}"></a>
                 </div>
-                @endfor
+                @endforeach
+                <div class="not-card">
+                    お気に入り情報がございません
+                </div>
             </div>
         </div>
         <div class="mypage__group">
             <h2 class="group-title">応募中</h2>
             <div class="group-cards">
-                @for ($s = 0; $s < 4; $s++)
+                @foreach ($applicants as $applicant)
                 <div class="group-card">
-                    <h3 class="group-genre">コンサートスタッフ</h3>
-                    <p class="group-name">店舗A</p>
-                    <p class="group-location">東京都</p>
-                    <p class="group-salary">時給1000～1500円</p>
-                    <a class="group-click" href="/job/detail/1"></a>
+                    <h3 class="group-genre">{{ $applicant->genre['name'] }}</h3>
+                    <p class="group-name">{{ $applicant['name'] }}</p>
+                    <p class="group-location">{{ $applicant->area['name'] }}</p>
+                    <p class="group-salary">{{ $applicant['salary'] }}</p>
+                    <a class="group-click" href="/job/detail/{{ $applicant['id'] }}"></a>
                 </div>
-                @endfor
+                @endforeach
+                <div class="not-card">
+                    応募情報がございません
+                </div>
             </div>
         </div>
     </div>
