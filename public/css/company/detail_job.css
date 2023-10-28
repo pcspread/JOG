@@ -70,6 +70,10 @@
     padding-bottom: 15px;
 }
 
+.job-label {
+    font-weight: bold;
+}
+
 .job-content {
     padding-left: 15px;
     word-wrap: break-word;
