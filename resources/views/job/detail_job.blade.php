@@ -23,10 +23,10 @@
                 </form>
                 @endif
 
-                @if (!empty($applicant) && empty($applicant['result']))
+                @if (!empty($applicant) && is_null($applicant['result']))
                 <a class="detail-email" href="/job/result/{{ $job['id'] }}">✉</a>
                 @endif
-                @if (!empty($applicant['result']))
+                @if (!empty($applicant) && !is_null($applicant['result']))
                 <a class="detail-email arrival" href="/job/result/{{ $job['id'] }}">✉</a>
                 @endif
             @endif

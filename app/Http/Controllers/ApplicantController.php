@@ -10,10 +10,13 @@ use Illuminate\Support\Facades\DB;
 // Model読込
 use App\Models\User;
 use App\Models\Applicant;
+use App\Models\Job;
 // Auth読込
 use Illuminate\Support\Facades\Auth;
 // Log読込
 use Illuminate\Support\Facades\Log;
+// Carbon読込
+use Carbon\Carbon;
 
 class ApplicantController extends Controller
 {
@@ -108,10 +111,34 @@ class ApplicantController extends Controller
         $applicant = Applicant::where('user_id', Auth::id())->where('job_id', $id)->first();
 
         // 応募結果が無い場合
-        if (empty($applicant['result'])) {
+        if (is_null($applicant['result'])) {
             return back()->with('danger', '応募結果が未着です');
         }
 
-        return view('job.success_message');
+        // 求人情報の取得
+        $job = Job::find($id);
+
+        // 応募情報の取得
+        $applicant = Applicant::where('user_id', Auth::id())->where('job_id', $id)->first();
+
+        // 1週間後の日付を格納
+        $date = Carbon::parse($applicant['updated_at']);
+        $due = $date->addDay(7)->format('Y年m月j日');
+
+        // 結果が決定した日から1週間を超えた場合
+        if (Carbon::now()->toDateString() >= $date->addDay(1)->toDateString()) {
+            return view('job.failure_message');
+        }
+
+        // 応募結果情報の取得
+        $result = Applicant::where('user_id', Auth::id())->where('job_id', $id)->first()['result'];
+        // 応募結果が通過の場合
+        if ($result === 1) {
+            return view('job.success_message', compact(['job', 'applicant', 'due']));
+        }
+        // 応募結果が未通過の場合
+        if ($result === 0) {
+            return view('job.failure_message');
+        }
     }
 }
