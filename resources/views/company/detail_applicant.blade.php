@@ -11,7 +11,7 @@
             <div class="left-group__top-block">
                 <h1 class="applicant-name">中山太郎</h1>
                 <div class="top-block__buttons">
-                    @if (is_null($applicant['result']))
+                    @if (!empty($applicant) && is_null($applicant['result']))
                     <form class="top-block__form" action="/company/list/{{ $applicant['job_id'] }}" method="POST">
                     @csrf
                         <button class="top-block__button success" name="result" value="success">通過</button>
@@ -21,10 +21,12 @@
                     <a class="top-block__button back" href="/company">戻る</a>
                 </div>
             </div>
-            <img class="applicant-image" src="@if (Auth::user()['image']) {{ asset('storage/' . Auth::user()['image']) }} @else {{ asset('img/applicant_img.png') }} @endif" alt="証明写真">
+
+            <img class="applicant-image" src="@if ($user['image']) {{ asset('storage/' . $user['image']) }} @else {{ asset('img/applicant_img.png') }} @endif" alt="証明写真">
+            
             <div class="applicant-item reason">
                 <label class="applicant-title">志望動機</label>
-                <p class="applicant-content">{{ $applicant['reason'] }}</p>
+                <p class="applicant-content">{{ $applicant['reason'] ?? '' }}</p>
             </div>
         </div>
 
@@ -33,33 +35,33 @@
                 <div class="right-group__left-block">
                     <div class="applicant-item">
                         <label class="applicant-title">メールアドレス</label>
-                        <p class="applicant-content">{{ Auth::user()['email'] }}</p>
+                        <p class="applicant-content">{{ $user['email'] }}</p>
                     </div>
                     <div class="applicant-item">
                         <label class="applicant-title">電話番号</label>
-                        <p class="applicant-content">{{ Auth::user()['tel'] }}</p>
+                        <p class="applicant-content">{{ $user['tel'] }}</p>
                     </div>
                     <div class="applicant-item">
                         <label class="applicant-title">性別</label>
-                        <p class="applicant-content">{{ Auth::user()['gender'] }}</p>
+                        <p class="applicant-content">{{ $user['gender'] }}</p>
                     </div>
                     <div class="applicant-item">
                         <label class="applicant-title">年齢</label>
-                        <p class="applicant-content">{{ Auth::user()['age'] }}</p>
+                        <p class="applicant-content">{{ $user['age'] }}</p>
                     </div>
                 </div>
                 <div class="right-gropu__right-block">
                     <div class="applicant-item">
                         <label class="applicant-title">郵便番号</label>
-                        <p class="applicant-content">{{ Auth::user()['postcode'] }}</p>
+                        <p class="applicant-content">{{ $user['postcode'] }}</p>
                     </div>
                     <div class="applicant-item">
                         <label class="applicant-title">住所</label>
-                        <p class="applicant-content">{{ Auth::user()['address'] }}</p>
+                        <p class="applicant-content">{{ $user['address'] }}</p>
                     </div>
                     <div class="applicant-item">
                         <label class="applicant-title">建物の名前</label>
-                        <p class="applicant-content">{{ Auth::user()['building'] }}</p>
+                        <p class="applicant-content">{{ $user['building'] }}</p>
                     </div>
                 </div>
             </div>

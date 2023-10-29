@@ -10,6 +10,7 @@ use App\Models\Job;
 use App\Models\Genre;
 use App\Models\Area;
 use App\Models\Applicant;
+use App\Models\User;
 // Request読込
 use App\Http\Requests\JobRequest;
 use App\Http\Requests\QuestionRequest;
@@ -137,8 +138,6 @@ class CompanyController extends Controller
         }
         
         return back()->with('success', '求人を更新しました');
-
-
     }
 
     /**
@@ -226,12 +225,15 @@ class CompanyController extends Controller
      * @param int $id
      * @return view
      */
-    public function showApplicant($id)
+    public function showApplicant($id, $user_id)
     {
         // 応募情報の取得
-        $applicant = Applicant::where('user_id', Auth::id())->where('job_id', $id)->first();
+        $applicant = Applicant::where('user_id', $user_id)->where('job_id', $id)->first();
 
-        return view('company.detail_applicant', compact('applicant'));
+        // ユーザー情報の取得
+        $user = User::find($user_id);
+
+        return view('company.detail_applicant', compact('applicant', 'user'));
     }
 
     /**

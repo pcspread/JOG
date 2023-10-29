@@ -41,7 +41,7 @@ use App\Models\Applicant;
                     <td class="applicant-content">{{ $applicant->user['gender'] }}</td>
                     <td class="applicant-content">{{ $applicant->user['age'] }}歳</td>
                     <td class="applicant-content">
-                        <a class="applicant-button" href="/company/list/{{ $applicant['job_id'] }}">詳細</a>
+                        <a class="applicant-button" href="/company/list/{{ $applicant['job_id'] }}/{{ $applicant['user_id'] }}">詳細</a>
                     </td>
                 </tr>
                 @endforeach
