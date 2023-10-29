@@ -21,7 +21,9 @@
                     <a class="top-block__button back" href="/company">戻る</a>
                 </div>
             </div>
+
             <img class="applicant-image" src="@if ($user['image']) {{ asset('storage/' . $user['image']) }} @else {{ asset('img/applicant_img.png') }} @endif" alt="証明写真">
+            
             <div class="applicant-item reason">
                 <label class="applicant-title">志望動機</label>
                 <p class="applicant-content">{{ $applicant['reason'] ?? '' }}</p>
