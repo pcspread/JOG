@@ -9,8 +9,10 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Job;
 use App\Models\Genre;
 use App\Models\Area;
+use App\Models\Applicant;
 // Request読込
 use App\Http\Requests\JobRequest;
+use App\Http\Requests\QuestionRequest;
 // DB読込
 use Illuminate\Support\Facades\DB;
 // Log読込
@@ -91,19 +93,19 @@ class CompanyController extends Controller
 
         try {
             // 新しいジャンルの入力がある場合
-            if (!empty($request['new_genre'])) {
+            if (!empty($request['genre'])) {
                 // 新しいジャンル情報の有無を確認
-                $new_genre = Genre::where('name', $request['new_genre'])->first();
+                $genre = Genre::where('name', $request['genre'])->first();
                 // 新しいジャンルが既に存在する場合
-                if (!empty($new_genre)) {
-                    $genre = $new_genre['id'];
+                if (!empty($genre)) {
+                    $genre = $genre['id'];
                 } else {
                     // create処理
                     Genre::create([
-                        'name' => $request['new_genre'],
+                        'name' => $request['genre'],
                     ]);
                     // ジャンルIDの格納
-                    $genre = Genre::where('name', $request['new_genre'])->first()['id'];
+                    $genre = Genre::where('name', $request['genre'])->first()['id'];
                 }
                 
             } else {
@@ -111,8 +113,7 @@ class CompanyController extends Controller
             }
     
             // create処理
-            Job::update([
-                'user_id' => Auth::id(),
+            Job::find($id)->update([
                 'genre_id' => $genre,
                 'area_id' => $form['area_id'],
                 'name' => $form['name'],
@@ -172,19 +173,19 @@ class CompanyController extends Controller
 
         try {
             // 新しいジャンルの入力がある場合
-            if (!empty($request['new_genre'])) {
+            if (!empty($request['genre'])) {
                 // 新しいジャンル情報の有無を確認
-                $new_genre = Genre::where('name', $request['new_genre'])->first();
+                $genre = Genre::where('name', $request['genre'])->first();
                 // 新しいジャンルが既に存在する場合
-                if (!empty($new_genre)) {
-                    $genre = $new_genre['id'];
+                if (!empty($genre)) {
+                    $genre = $genre['id'];
                 } else {
                     // create処理
                     Genre::create([
-                        'name' => $request['new_genre'],
+                        'name' => $request['genre'],
                     ]);
                     // ジャンルIDの格納
-                    $genre = Genre::where('name', $request['new_genre'])->first()['id'];
+                    $genre = Genre::where('name', $request['genre'])->first()['id'];
                 }
                 
             } else {
@@ -227,7 +228,48 @@ class CompanyController extends Controller
      */
     public function showApplicant($id)
     {
-        
-        return view('company.detail_applicant');
+        // 応募情報の取得
+        $applicant = Applicant::where('user_id', Auth::id())->where('job_id', $id)->first();
+
+        return view('company.detail_applicant', compact('applicant'));
+    }
+
+    /**
+     * 応募結果送信処理
+     * @param int $id
+     * @param object $request
+     * @return back
+     */
+    public function updateApplicant($id, Request $request)
+    {
+        // 「通過」が押された場合
+        if ($request['result'] === 'success') {
+            Applicant::where('user_id', Auth::id())->where('job_id', $id)->first()->update([
+                'result' => 1,
+            ]);
+            return back()->with('success', '通過メッセージを送信しました');
+        } elseif ($request['result'] === 'failure') {
+            // 「断る」が押された場合
+            Applicant::where('user_id', Auth::id())->where('job_id', $id)->first()->update([
+                'result' => 0,
+            ]);
+            return back()->with('success', '断りのメッセージを送信しました');
+        }
+    }
+
+    /**
+     * 質問返答処理
+     * @param int $id
+     * @param object $request
+     * @return back
+     */
+    public function updateQuestion ($id, QuestionRequest $request) {
+        // フォーム情報の取得
+        $form = $request->only('answer');
+
+        // update処理
+        Applicant::where('user_id', Auth::id())->where('job_id', $id)->first()->update($form);       
+
+        return back()->with('success', '返答が完了しました');
     }
 }

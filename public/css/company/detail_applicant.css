@@ -30,6 +30,12 @@
     padding: 5px;
 }
 
+.top-block__form {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
 .top-block__button {
     display: block;
     width: 120px;
@@ -210,6 +216,11 @@
     .applicant-item.experience {
         margin: 15px 0;
     }
+
+    .bottom-wrapper-error {
+        min-height: 32px;
+        color: #FF5555;
+    }
 }
 
 @media screen and (max-width: 691px) {
@@ -230,6 +241,10 @@
     .top-block__buttons {
         display: block;
         padding: 0;
+    }
+
+    .top-block__form {
+        display: block;
     }
 
     .top-block__button.success,

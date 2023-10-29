@@ -21,6 +21,7 @@ class Applicant extends Model
         'experience',
         'question',
         'answer',
+        'result',
     ];
 
     /**

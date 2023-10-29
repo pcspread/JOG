@@ -22,6 +22,7 @@ class JobRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'genre' => ['nullable', 'string', 'max:20'],
             'name' => ['required', 'string', 'max:191'],
             'content' => ['required', 'string'],
             'email' => ['required', 'email', 'string', 'max:191'],
@@ -41,6 +42,8 @@ class JobRequest extends FormRequest
     public function messages()
     {
         return [
+            'genre.string' => 'ジャンルを入力してください',
+            'genre.max' => 'ジャンルは20文字以内で入力してください',
             'name.required' => '企業名を入力してください',
             'name.string' => '企業名は文字列で入力してください',
             'name.max' => '企業名は191文字以内で入力してください',
