@@ -96,3 +96,9 @@ Route::post('/company/create', [CompanyController::class, 'storeJob']);
 
 // view表示：応募詳細ページ
 Route::get('/company/list/{id}', [CompanyController::class, 'showApplicant']);
+
+// 応募結果送信処理
+Route::post('/company/list/{id}', [CompanyController::class, 'updateApplicant']);
+
+// 質問返答処理
+Route::patch('/company/list/{id}', [CompanyController::class, 'updateQuestion']);

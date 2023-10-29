@@ -19,11 +19,11 @@
             <p class="applicant-item__error"></p>
         </div>
         <div class="applicant-item">
-            <label class="applicant-item__title" for="new_genre">ジャンル(上記に無いジャンルの場合)</label>
-            <input class="applicant-item__content" id="new_genre" type="text" name="new_genre" value="{{ old('new_genre') }}" placeholder="入力欄">
+            <label class="applicant-item__title" for="genre">ジャンル(上記に無いジャンルの場合)</label>
+            <input class="applicant-item__content" id="genre" type="text" name="genre" value="{{ old('genre') }}" placeholder="入力欄">
             <p class="applicant-item__error">
-                @error('new_genre')
-                    {{ $errors->first('new_genre') }}
+                @error('genre')
+                    {{ $errors->first('genre') }}
                 @enderror
             </p>
         </div>
