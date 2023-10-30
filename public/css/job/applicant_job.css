@@ -35,6 +35,8 @@
 
 .applicant-item__image-select:hover {
     cursor: pointer;
+    background-color: #FF5555;
+    color: #FFF;
 }
 
 .applicant-item__content {
