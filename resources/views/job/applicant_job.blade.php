@@ -27,7 +27,7 @@
         </div>
         <div class="applicant-item">
             <label class="applicant-item__title" for="name">氏名</label>
-            <input class="applicant-item__content" id="name" type="text" name="name" value="{{ empty(Auth::user()['name']) ? old('name') : Auth::user()['name'] }}" placeholder="入力欄">
+            <input class="applicant-item__content" id="name" type="text" name="name" value="{{ old('name') }}" placeholder="入力欄">
             <p class="applicant-item__error">
                 @error('name')
                     {{ $errors->first('name') }}
@@ -36,7 +36,7 @@
         </div>
         <div class="applicant-item">
             <label class="applicant-item__title" for="email">メールアドレス</label>
-            <input class="applicant-item__content" id="email" type="text" name="email" value="{{ Auth::user()['email'] }}" placeholder="入力欄" readonly>
+            <input class="applicant-item__content" id="email" type="text" name="email" value="{{ old('email') }}" placeholder="入力欄">
             <p class="applicant-item__error">
                 @error('email')
                     {{ $errors->first('email') }}
@@ -46,16 +46,16 @@
         <div class="applicant-item">
             <label class="applicant-item__title">性別</label>
             <select class="applicant-item__content" name="gender">
-                <option class="applicant-item__option" value="男性" @if (old('gender') === '男性' || Auth::user()['gender'] === '男性') selected @endif>男性</option>
-                <option class="applicant-item__option" value="女性" @if (old('gender') === '女性' || Auth::user()['gender'] === '女性') selected @endif>女性</option>
-                <option class="applicant-item__option" value="その他" @if (old('gender') === 'その他' || Auth::user()['gender'] === 'その他') selected @endif>その他</option>
+                <option class="applicant-item__option" value="男性" @if (old('gender') === '男性') selected @endif>男性</option>
+                <option class="applicant-item__option" value="女性" @if (old('gender') === '女性') selected @endif>女性</option>
+                <option class="applicant-item__option" value="その他" @if (old('gender') === 'その他') selected @endif>その他</option>
             </select>
             <p class="applicant-item__error">
             </p>
         </div>
         <div class="applicant-item">
             <label class="applicant-item__title" for="age">年齢</label>
-            <input class="applicant-item__content" id="age" type="text" name="age" value="{{ empty(Auth::user()['age']) ? old('age') : Auth::user()['age'] }}" placeholder="入力欄">
+            <input class="applicant-item__content" id="age" type="text" name="age" value="{{ old('age') }}" placeholder="入力欄">
             <p class="applicant-item__error">
                 @error('age')
                     {{ $errors->first('age') }}
@@ -64,7 +64,7 @@
         </div>
         <div class="applicant-item">
             <label class="applicant-item__title" for="tel">電話番号</label>
-            <input class="applicant-item__content" id="tel" type="text" name="tel" value="{{ empty(Auth::user()['tel']) ? old('tel') : Auth::user()['tel'] }}" placeholder="入力欄">
+            <input class="applicant-item__content" id="tel" type="text" name="tel" value="{{ old('tel') }}" placeholder="入力欄">
             <p class="applicant-item__error">
                 @error('tel')
                     {{ $errors->first('tel') }}
@@ -73,7 +73,7 @@
         </div>
         <div class="applicant-item">
             <label class="applicant-item__title" for="postcode">郵便番号</label>
-            <input class="applicant-item__content" id="postcode" type="text" name="postcode" value="{{ empty(Auth::user()['postcode']) ? old('postcode') : Auth::user()['postcode'] }}" placeholder="入力欄">
+            <input class="applicant-item__content" id="postcode" type="text" name="postcode" value="{{ old('postcode') }}" placeholder="入力欄">
             <p class="applicant-item__error">
                 @error('postcode')
                     {{ $errors->first('postcode') }}
@@ -82,7 +82,7 @@
         </div>
         <div class="applicant-item">
             <label class="applicant-item__title" for="address">住所</label>
-            <input class="applicant-item__content" id="address" type="text" name="address" value="{{ empty(Auth::user()['address']) ? old('address') : Auth::user()['address'] }}" placeholder="入力欄">
+            <input class="applicant-item__content" id="address" type="text" name="address" value="{{ old('address') }}" placeholder="入力欄">
             <p class="applicant-item__error">
                 @error('address')
                     {{ $errors->first('address') }}
@@ -91,7 +91,7 @@
         </div>
         <div class="applicant-item">
             <label class="applicant-item__title" for="building">建物の名前</label>
-            <input class="applicant-item__content" id="building" type="text" name="building" value="{{ empty(Auth::user()['building']) ? old('building') : Auth::user()['building'] }}" placeholder="入力欄">
+            <input class="applicant-item__content" id="building" type="text" name="building" value="{{ old('building') }}" placeholder="入力欄">
             <p class="applicant-item__error">
                 @error('building')
                     {{ $errors->first('building') }}

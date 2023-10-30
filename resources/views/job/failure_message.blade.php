@@ -13,6 +13,6 @@
         ご希望に添えず申し訳ございませんが、あしからずご了承ください。<br />
         今後のご健勝を心よりお祈り申し上げます。
     </p>
-    <a class="message-click" href="/job/detail/1">求人詳細へ</a>
+    <a class="message-click" href="/job/detail/{{ $job['id'] }}">求人詳細へ</a>
 </div>
 @endsection

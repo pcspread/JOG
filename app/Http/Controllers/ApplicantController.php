@@ -49,52 +49,32 @@ class ApplicantController extends Controller
         }
 
         // form情報取得
-        $formUser = $request->only(['name', 'postcode', 'address', 'building', 'gender', 'age', 'tel']);
-        $formApplicant = $request->only(['appeal', 'reason', 'experience', 'question']);
-
+        $form = $request->only(['name', 'email', 'postcode', 'address', 'building', 'gender', 'age', 'tel', 'appeal', 'reason', 'experience', 'question']);
+        
         // 画像情報の取得
         $image = $request->file('image');
-
+        
         // 画像ファイルの保存パスを生成
         $path = $image->store('images', 'public');
         
-        // トランザクション開始
-        DB::beginTransaction();
-
-        try {
-            // update処理:users
-            User::find(Auth::id())->update([
-                'name' => $formUser['name'],
-                'image' => $path,
-                'postcode' => $formUser['postcode'],
-                'address' => $formUser['address'],
-                'building' => $formUser['building'],
-                'gender' => $formUser['gender'],
-                'age' => $formUser['age'],
-                'tel' => $formUser['tel'],
-            ]);
-
-            // create処理:applicants
-            Applicant::create([
-                'user_id' => Auth::id(),
-                'job_id' => $id,
-                'appeal' => $formApplicant['appeal'],
-                'reason' => $formApplicant['reason'],
-                'experience' => $formApplicant['experience'],
-                'question' => $formApplicant['question'],
-            ]);
-
-            DB::commit();
-        } catch (\PDOException $e) {
-            DB::rollback();
-
-            // エラー内容の保存
-            Log::error('データベース接続失敗', [
-                'content' => $e->getMessage(),
-                'location' => $e->getFile(),
-                'row' => $e->getLine(),
-            ]);
-        }
+        // create処理:applicants
+        Applicant::create([
+            'user_id' => Auth::id(),
+            'job_id' => $id,
+            'name' => $form['name'],
+            'email' => $form['email'],
+            'image' => $path,
+            'postcode' => $form['postcode'],
+            'address' => $form['address'],
+            'building' => $form['building'],
+            'gender' => $form['gender'],
+            'age' => $form['age'],
+            'tel' => $form['tel'],
+            'appeal' => $form['appeal'],
+            'reason' => $form['reason'],
+            'experience' => $form['experience'],
+            'question' => $form['question'],
+        ]);
 
         return back()->with('success', '応募が完了しました');
     } 
@@ -127,7 +107,7 @@ class ApplicantController extends Controller
 
         // 結果が決定した日から1週間を超えた場合
         if (Carbon::now()->toDateString() >= $date->addDay(1)->toDateString()) {
-            return view('job.failure_message');
+            return view('job.failure_message', compact('job'));
         }
 
         // 応募結果情報の取得
@@ -138,7 +118,7 @@ class ApplicantController extends Controller
         }
         // 応募結果が未通過の場合
         if ($result === 0) {
-            return view('job.failure_message');
+            return view('job.failure_message', compact('job'));
         }
     }
 }

@@ -76,6 +76,7 @@
 
 .right-group {
     padding: 15px;
+    width: 50%;
 }
 
 .right-group__wrapper {
@@ -199,6 +200,7 @@
 
     .right-group {
         padding: 0 15px;
+        width: 100%;
     }
 
     .right-group__wrapper {

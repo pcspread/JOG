@@ -225,15 +225,12 @@ class CompanyController extends Controller
      * @param int $id
      * @return view
      */
-    public function showApplicant($id, $user_id)
+    public function showApplicant($id)
     {
         // 応募情報の取得
-        $applicant = Applicant::where('user_id', $user_id)->where('job_id', $id)->first();
+        $applicant = Applicant::find($id);
 
-        // ユーザー情報の取得
-        $user = User::find($user_id);
-
-        return view('company.detail_applicant', compact('applicant', 'user'));
+        return view('company.detail_applicant', compact('applicant'));
     }
 
     /**

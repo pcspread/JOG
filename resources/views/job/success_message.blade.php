@@ -14,6 +14,6 @@
         ご連絡が無い場合は、お断りの方向で処理させていただきますので、何卒よろしくお願いいたします。
         電話番号：{{ $job['tel'] }}
     </p>
-    <a class="message-click" href="/job/detail/1">求人詳細へ</a>
+    <a class="message-click" href="/job/detail/{{ $job['id'] }}">求人詳細へ</a>
 </div>
 @endsection

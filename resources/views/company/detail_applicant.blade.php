@@ -22,7 +22,7 @@
                 </div>
             </div>
 
-            <img class="applicant-image" src="@if ($user['image']) {{ asset('storage/' . $user['image']) }} @else {{ asset('img/applicant_img.png') }} @endif" alt="証明写真">
+            <img class="applicant-image" src="@if ($applicant['image']) {{ asset('storage/' . $applicant['image']) }} @else {{ asset('img/applicant_img.png') }} @endif" alt="証明写真">
             
             <div class="applicant-item reason">
                 <label class="applicant-title">志望動機</label>
@@ -35,33 +35,33 @@
                 <div class="right-group__left-block">
                     <div class="applicant-item">
                         <label class="applicant-title">メールアドレス</label>
-                        <p class="applicant-content">{{ $user['email'] }}</p>
+                        <p class="applicant-content">{{ $applicant['email'] }}</p>
                     </div>
                     <div class="applicant-item">
                         <label class="applicant-title">電話番号</label>
-                        <p class="applicant-content">{{ $user['tel'] }}</p>
+                        <p class="applicant-content">{{ $applicant['tel'] }}</p>
                     </div>
                     <div class="applicant-item">
                         <label class="applicant-title">性別</label>
-                        <p class="applicant-content">{{ $user['gender'] }}</p>
+                        <p class="applicant-content">{{ $applicant['gender'] }}</p>
                     </div>
                     <div class="applicant-item">
                         <label class="applicant-title">年齢</label>
-                        <p class="applicant-content">{{ $user['age'] }}</p>
+                        <p class="applicant-content">{{ $applicant['age'] }}</p>
                     </div>
                 </div>
                 <div class="right-gropu__right-block">
                     <div class="applicant-item">
                         <label class="applicant-title">郵便番号</label>
-                        <p class="applicant-content">{{ $user['postcode'] }}</p>
+                        <p class="applicant-content">{{ $applicant['postcode'] }}</p>
                     </div>
                     <div class="applicant-item">
                         <label class="applicant-title">住所</label>
-                        <p class="applicant-content">{{ $user['address'] }}</p>
+                        <p class="applicant-content">{{ $applicant['address'] }}</p>
                     </div>
                     <div class="applicant-item">
                         <label class="applicant-title">建物の名前</label>
-                        <p class="applicant-content">{{ $user['building'] }}</p>
+                        <p class="applicant-content">{{ $applicant['building'] }}</p>
                     </div>
                 </div>
             </div>
