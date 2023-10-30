@@ -9,7 +9,7 @@
     <div class="top-group">
         <h1 class="detail-title">{{ $job->genre['name'] }}</h1>
         <div class="detail-buttons">
-            <a class="detail-edit" href="/company/detail/1/edit">修正する</a>
+            <a class="detail-edit" href="/company/detail/{{ $job['id'] }}/edit">修正する</a>
             <a class="detail-back" href="/company">戻る</a>
         </div>
     </div>

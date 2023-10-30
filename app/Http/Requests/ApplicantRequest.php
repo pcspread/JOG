@@ -24,6 +24,7 @@ class ApplicantRequest extends FormRequest
         return [
             'image' => ['required', 'image'],
             'name' => ['required', 'string', 'max:191'],
+            'email' => ['required', 'email', 'string', 'max:191'],
             'postcode' => ['required', 'regex:/[0-9]{3}-[0-9]{4}/'],
             'address' => ['required', 'string', 'max:191'],
             'building' => ['nullable', 'string', 'max:191'],
@@ -49,6 +50,10 @@ class ApplicantRequest extends FormRequest
             'name.required' => '氏名を入力してください',
             'name.string' => '氏名は文字列で入力してください',
             'name.max' => '氏名は191文字以内で入力してください',
+            'email.required' => 'メールアドレスを入力してください',
+            'email.email' => 'メールアドレスを正しい形式で入力してください',
+            'email.string' => 'メールアドレスは文字列で入力してください',
+            'email.max' => 'メールアドレスは191文字以内で入力してください',
             'postcode.required' => '郵便番号を入力してください',
             'postcode.regex' => '郵便番号を正しい形式で入力してください',
             'address.required' => '住所を入力してください',

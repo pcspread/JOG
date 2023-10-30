@@ -11,7 +11,7 @@ use App\Models\Applicant;
 @section('content')
 <div class="main-section">
     <div class="main-title__group">
-        <h1 class="main-title__name">ユーザー２様</h1>
+        <h1 class="main-title__name">メインページ</h1>
         <a class="main-title__button" href="/company/create">求人を出す</a>
     </div>
     
@@ -36,12 +36,12 @@ use App\Models\Applicant;
                 </tr>
                 @foreach (Applicant::where('job_id', $job['id'])->orderBy('created_at', 'desc')->get() as $applicant)
                 <tr class="applicant-record">
-                    <td class="applicant-content">{{ $applicant->user['name'] }}</td>
-                    <td class="applicant-content">{{ $applicant->user['email'] }}</td>
-                    <td class="applicant-content">{{ $applicant->user['gender'] }}</td>
-                    <td class="applicant-content">{{ $applicant->user['age'] }}歳</td>
+                    <td class="applicant-content">{{ $applicant['name'] }}</td>
+                    <td class="applicant-content">{{ $applicant['email'] }}</td>
+                    <td class="applicant-content">{{ $applicant['gender'] }}</td>
+                    <td class="applicant-content">{{ $applicant['age'] }}歳</td>
                     <td class="applicant-content">
-                        <a class="applicant-button" href="/company/list/{{ $applicant['job_id'] }}/{{ $applicant['user_id'] }}">詳細</a>
+                        <a class="applicant-button" href="/company/list/{{ $applicant['id'] }}">詳細</a>
                     </td>
                 </tr>
                 @endforeach

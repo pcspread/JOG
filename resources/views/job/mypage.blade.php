@@ -6,7 +6,7 @@
 
 @section('content')
 <div class="mypage-section">
-    <h1 class="mypage-title">ユーザー１様</h1>
+    <h1 class="mypage-title">マイページ</h1>
     <div class="mypage__group-wrapper">
         <div class="mypage__group">
             <h2 class="group-title">お気に入り</h2>
@@ -20,9 +20,11 @@
                     <a class="group-click" href="/job/detail/{{ $favorite['id'] }}"></a>
                 </div>
                 @endforeach
+                @if (count($favorites) === 0)
                 <div class="not-card">
                     お気に入り情報がございません
                 </div>
+                @endif
             </div>
         </div>
         <div class="mypage__group">
@@ -37,9 +39,11 @@
                     <a class="group-click" href="/job/detail/{{ $applicant['id'] }}"></a>
                 </div>
                 @endforeach
+                @if (count($applicants) === 0)
                 <div class="not-card">
                     応募情報がございません
                 </div>
+                @endif
             </div>
         </div>
     </div>

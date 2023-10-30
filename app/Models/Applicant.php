@@ -16,6 +16,15 @@ class Applicant extends Model
     protected $fillable = [
         'user_id',
         'job_id',
+        'name',
+        'email',
+        'image',
+        'gender',
+        'age',
+        'tel',
+        'postcode',
+        'address',
+        'building',
         'appeal',
         'reason',
         'experience',
@@ -23,14 +32,4 @@ class Applicant extends Model
         'answer',
         'result',
     ];
-
-    /**
-     * リレーション設定
-     * @param void
-     * @return object
-     */
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
 }
