@@ -71,6 +71,7 @@ class UserController extends Controller
         session()->put([
             'email' => $form['email'],
             'token' => $token,
+            'access' => 1,
         ]);
 
         return redirect('/verify/email');
@@ -124,17 +125,26 @@ class UserController extends Controller
      */
     public function indexMail()
     {
+        // 新規登録手順を踏んでいない場合
+        if (empty(session('access'))) {
+            return redirect('/register');
+        }
+
         return view('auth.verify_email');
     }
 
     /**
-     * view表示
      * 認証メール再送
      * @param object $request
      * @return back
      */
     public function resendMail(Request $request)
     {
+        // 新規登録手順を踏んでいない場合
+        if (empty(session('access'))) {
+            return redirect('/register');
+        }
+        
         // メール送信処理
         Mail::send(new VerifyMail(session('email'), session('token')));
         
@@ -152,6 +162,11 @@ class UserController extends Controller
      */
     public function indexThanks(Request $request)
     {
+        // 新規登録手順を踏んでいない場合
+        if (empty(session('access'))) {
+            return redirect('/register');
+        }
+
         // token情報を取得
         $token = $request->token;
 
