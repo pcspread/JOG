@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('time');
             $table->string('shift');
             $table->string('location', 191);
+            $table->bigInteger('visit')->default(0);
             $table->timestamps();
             $table->softDeletes();
         });

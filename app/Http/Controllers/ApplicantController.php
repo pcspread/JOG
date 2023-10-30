@@ -32,6 +32,12 @@ class ApplicantController extends Controller
         if (!Auth::check()) {
             return back()->with('danger', '応募にはログインが必要です');
         }
+        
+        // 既に応募している場合
+        if (!empty(Applicant::where('user_id', Auth::id())->where('job_id', $id)->first())) {
+            return back()->with('danger', '応募済の求人です');
+        }
+        
         return view('job.applicant_job', compact('id'));
     }
 
@@ -43,11 +49,6 @@ class ApplicantController extends Controller
      */
     public function storeApplicant($id, ApplicantRequest $request)
     {
-        // 既に応募している場合
-        if (!empty(Applicant::where('user_id', Auth::id())->where('job_id', $id)->first())) {
-            return back()->with('danger', '応募済の求人です');
-        }
-
         // form情報取得
         $form = $request->only(['name', 'email', 'postcode', 'address', 'building', 'gender', 'age', 'tel', 'appeal', 'reason', 'experience', 'question']);
         
