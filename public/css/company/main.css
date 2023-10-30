@@ -14,6 +14,7 @@
     justify-content: left;
     align-items: center;
     margin: 5px 0 0 15px;
+    min-width: 650px;
 }
 
 .main-title__button {

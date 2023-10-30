@@ -41,6 +41,11 @@
     text-decoration: none;
 }
 
+.detail-back:hover,
+.detail-edit:hover {
+    opacity: .7;
+}
+
 .bottom-group {
     padding: 0 15px 15px;
     font-size: 18px;
