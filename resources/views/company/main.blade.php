@@ -22,7 +22,7 @@ use App\Models\Applicant;
             <p class="job-company">企業名：{{ $job['name'] }}</p>
             <a class="job-detail" href="/company/detail/{{ $job['id'] }}">求人詳細はこちら</a>
             <div class="job-count">
-                <p class="access-count">訪問件数：50件</p>
+                <p class="access-count">ログインユーザー訪問件数：{{ $job['visit'] }}件</p>
                 <p class="applicant-count">応募件数：{{ count(Applicant::where('job_id', $job['id'])->get()) }}件</p>
             </div>
             @if (count(Applicant::where('job_id', $job['id'])->get()) > 0)

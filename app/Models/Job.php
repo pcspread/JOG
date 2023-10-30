@@ -25,6 +25,7 @@ class Job extends Model
         'time',
         'shift',
         'location',
+        'visit',
     ];
 
     /**
