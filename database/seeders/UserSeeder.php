@@ -29,5 +29,16 @@ class UserSeeder extends Seeder
                 'updated_at' => Carbon::now()->__toString(),
             ]);
         }
+        for ($i = 6; $i <= 7; $i++) {
+            DB::table('users')->insert([
+                'email' => "test{$i}@test.com",
+                'password' => Hash::make('test1111'),
+                'company' => 0,
+                'email_verified_at' => Carbon::now()->__toString(),
+                'remember_token' => Hash::make(bin2hex(random_bytes(32))),
+                'created_at' => Carbon::now()->__toString(),
+                'updated_at' => Carbon::now()->__toString(),
+            ]);
+        }
     }
 }
