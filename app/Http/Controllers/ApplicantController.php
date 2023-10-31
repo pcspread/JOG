@@ -45,7 +45,7 @@ class ApplicantController extends Controller
      * 応募処理
      * @param int $id
      * @param object $request
-     * @return back
+     * @return redirect
      */
     public function storeApplicant($id, ApplicantRequest $request)
     {
@@ -77,7 +77,7 @@ class ApplicantController extends Controller
             'question' => $form['question'],
         ]);
 
-        return back()->with('success', '応募が完了しました');
+        return redirect("/job/detail/{$id}")->with('success', '応募が完了しました');
     } 
 
     /**
