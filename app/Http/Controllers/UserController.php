@@ -162,11 +162,6 @@ class UserController extends Controller
      */
     public function indexThanks(Request $request)
     {
-        // 新規登録手順を踏んでいない場合
-        if (empty(session('access'))) {
-            return redirect('/register');
-        }
-
         // token情報を取得
         $token = $request->token;
 

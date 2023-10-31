@@ -4,6 +4,10 @@
 <link rel="stylesheet" href="{{ asset('css/job/jobs.css') }}">
 @endsection
 
+@section('js')
+<script src="{{ asset('js/job/jobs.js') }}" defer></script>
+@endsection
+
 @section('content')
 <div class="jobs-section">
     <div class="search-group">

@@ -132,17 +132,14 @@
     word-wrap: break-word;
 }
 
-.bottom-wrapper {
-    display: flex;
-    justify-content: left;
-    align-items: flex-start;
-}
-
 .applicant-item.bottom {
     width: 50%;
 }
 
 .bottom-wrapper {
+    display: flex;
+    justify-content: left;
+    align-items: flex-start;
     margin: 0 20px 20px;
     padding: 15px;
     border-radius: 3px;
@@ -164,6 +161,11 @@
     padding: 5px;
     border: 2px solid #888;
     border-radius: 3px;
+}
+
+.bottom-wrapper-error {
+    min-height: 32px;
+    color: #FF5555;
 }
 
 .bottom-wrapper__button {
@@ -217,11 +219,6 @@
 
     .applicant-item.experience {
         margin: 15px 0;
-    }
-
-    .bottom-wrapper-error {
-        min-height: 32px;
-        color: #FF5555;
     }
 }
 

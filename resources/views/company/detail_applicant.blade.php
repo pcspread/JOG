@@ -12,7 +12,7 @@
                 <h1 class="applicant-name">中山太郎</h1>
                 <div class="top-block__buttons">
                     @if (!empty($applicant) && is_null($applicant['result']))
-                    <form class="top-block__form" action="/company/list/{{ $applicant['job_id'] }}" method="POST">
+                    <form class="top-block__form" action="/company/list/{{ $applicant['id'] }}" method="POST">
                     @csrf
                         <button class="top-block__button success" name="result" value="success">通過</button>
                         <button class="top-block__button failure" name="result" value="failure">断る</button>
@@ -77,7 +77,7 @@
     </div>
     @if (!empty($applicant['question']))
     <div class="bottom-wrapper">
-        <form class="bottom-wrapper__form" action="/company/list/{{ $applicant['job_id'] }}" method="POST">
+        <form class="bottom-wrapper__form" action="/company/list/{{ $applicant['id'] }}" method="POST">
         @method('patch')
         @csrf
             <label class="bottom-wrapper__title" for="answer">質問内容</label>

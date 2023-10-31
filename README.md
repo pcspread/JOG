@@ -8,9 +8,10 @@
 東京23区を対象とした、企業が求人を投稿し、ユーザーが閲覧して興味のある企業に応募する(多くの求人を求める企業が使用)<br />
 
 ■ トップ画像<br />
-![Alt text](image.png)
+![Alt text](image-8.png)
 
 ## アプリケーション URL
+https://waterfall32-breeze.com/
 
 ## 使用技術(実行環境)
 ■ 使用言語<br />

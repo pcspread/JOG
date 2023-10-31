@@ -243,13 +243,13 @@ class CompanyController extends Controller
     {
         // 「通過」が押された場合
         if ($request['result'] === 'success') {
-            Applicant::where('user_id', Auth::id())->where('job_id', $id)->first()->update([
+            Applicant::find($id)->update([
                 'result' => 1,
             ]);
             return back()->with('success', '通過メッセージを送信しました');
         } elseif ($request['result'] === 'failure') {
             // 「断る」が押された場合
-            Applicant::where('user_id', Auth::id())->where('job_id', $id)->first()->update([
+            Applicant::find($id)->update([
                 'result' => 0,
             ]);
             return back()->with('success', '断りのメッセージを送信しました');
@@ -267,7 +267,7 @@ class CompanyController extends Controller
         $form = $request->only('answer');
 
         // update処理
-        Applicant::where('user_id', Auth::id())->where('job_id', $id)->first()->update($form);       
+        Applicant::find($id)->update($form);      
 
         return back()->with('success', '返答が完了しました');
     }
