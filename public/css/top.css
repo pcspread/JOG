@@ -1,5 +1,13 @@
 @charset "UTF-8";
 
+body {
+    background-image: url('../img/table.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
 .top-section {
     width: 50%;
     max-width: 400px;
