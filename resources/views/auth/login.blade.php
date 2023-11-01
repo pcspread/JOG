@@ -20,7 +20,7 @@
         </div>
         <div class="login-item">
             <label class="login-item__title" for="password">パスワード</label>
-            <input class="login-item__input" id="password" type="password" name="password" value="{{ old('password') }}">
+            <input class="login-item__input" id="password" type="password" name="password">
             <p class="login-item__error">
                 @error('password')
                     {{ $errors->first('password') }}
@@ -28,7 +28,7 @@
             </p>
         </div>
         <button class="login-button">ログイン</button>
-        <a class="login__register-click" href="/register">新規登録はこちら</a>
+        <a class="login__register-click" href="/reset">パスワードを忘れた方はこちら</a>
     </form>
 </div>
 @endsection

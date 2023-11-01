@@ -41,7 +41,6 @@ Mailpit(local環境)<br />
 ## 画面遷移図
 ![Alt text](image-5.png)
 
-
 ## 環境構築
 ■ 開発環境<br />
 [土台]<br />

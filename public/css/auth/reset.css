@@ -1,22 +1,22 @@
 @charset "UTF-8";
 
-.register-section {
+.reset-section {
     width: 50%;
     max-width: 400px;
     margin: 100px auto;
     text-align: center;
 }
 
-.register-title {
+.reset-title {
     padding: 24px 0;
     font-size: 28px;
 }
 
-.register-item {
+.reset-item {
     text-align: left;
 }
 
-.register-item__input {
+.reset-item__input {
     display: block;
     width: 100%;
     padding: 3px;
@@ -24,21 +24,12 @@
     border: 2px solid #888;
 }
 
-.register-item__error {
+.reset-item__error {
     min-height: 32px;
     color: #FF5555;
 }
 
-.register-item.checkbox {
-    margin-bottom: 32px;
-}
-
-.register-item__checkbox {
-    transform: scale(2) translateY(-1px);
-    margin: 0 10px 0 5px;
-}
-
-.register-button {
+.reset-button {
     display: block;
     width: 100%;
     margin-bottom: 15px;
@@ -50,13 +41,24 @@
     color: #FFF;
 }
 
-.register-button:hover {
+.reset-button:hover {
     cursor: pointer;
     opacity: .7;
 }
 
+.reset__login-click {
+    text-decoration: none;
+    color: #009FC3;
+}
+
+.reset__login-click:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+}
+
 @media screen and (max-width: 480px) {
-    .register-section {
+    .reset-section {
         width: 80%;
     }
 }

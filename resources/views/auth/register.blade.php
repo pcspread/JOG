@@ -20,7 +20,7 @@
         </div>
         <div class="register-item">
             <label class="register-item__title" for="password">パスワード</label>
-            <input class="register-item__input" id="password" type="password" name="password" value="{{ old('password') }}">
+            <input class="register-item__input" id="password" type="password" name="password">
             <p class="register-item__error">
                 @error('password')
                     {{ $errors->first('password') }}
@@ -33,7 +33,6 @@
             求人を掲載される場合</label>
         </div>
         <button class="register-button">登録する</button>
-        <a class="register__login-click" href="/login">ログインはこちら</a>
     </form>
 </div>
 @endsection

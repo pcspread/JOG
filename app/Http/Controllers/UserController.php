@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 // Request読込
 use App\Http\Requests\RegisterRequest;
 use App\Http\Requests\LoginRequest;
+use App\Http\Requests\EmailRequest;
+use App\Http\Requests\ResetRequest;
 // Model読込
 use App\Models\User;
 // Hash読込
@@ -13,6 +15,7 @@ use Illuminate\Support\Facades\Hash;
 // Mail読込
 use Illuminate\Support\Facades\Mail;
 use App\Mail\VerifyMail;
+use App\Mail\ResetMail;
 // Carbon読込
 use Carbon\Carbon;
 // Auth読込
@@ -79,46 +82,6 @@ class UserController extends Controller
 
     /**
      * view表示
-     * ログインページ
-     * @param void
-     * @return view
-     */
-    public function indexLogin()
-    {
-        return view('auth.login');
-    }
-
-    /**
-     * login処理
-     * @param object $request
-     * @return redirect,back
-     */
-    public function login(LoginRequest $request)
-    {
-        // フォーム情報の取得
-        $form = $request->only(['email', 'password']);
-
-        // ログインチェック
-        if (Auth::attempt($form)) {
-            // ユーザー情報取得
-            $user = User::where('email', $form['email'])->first();
-            // メール認証が未完了の場合
-            if (empty($user['email_verified_at'])) {
-                return back()->with('danger', 'メール認証が未完了です');
-            } else {
-                // セッションID再生成
-                $request->session()->regenerate();
-                session()->put('visit', 0);
-                return redirect('/')->with('success', 'ログインしました');
-            }
-        }
-    
-        // ログイン情報と一致しない場合
-        return back()->with('danger', '登録情報が見つかりませんでした');
-    }
-
-    /**
-     * view表示
      * 認証メール送信済ページ
      * @param void
      * @return view
@@ -165,6 +128,11 @@ class UserController extends Controller
         // token情報を取得
         $token = $request->token;
 
+        // トークンが無い場合
+        if (empty($token)) {
+            return redirect('/register');
+        }
+
         // ユーザー情報の取得
         $users = User::all();
 
@@ -178,6 +146,138 @@ class UserController extends Controller
         }
         
         return redirect('/register')->with('danger', '登録情報がございません');
+    }
+
+    /**
+     * view表示
+     * ログインページ
+     * @param void
+     * @return view
+     */
+    public function indexLogin()
+    {
+        return view('auth.login');
+    }
+
+    /**
+     * login処理
+     * @param object $request
+     * @return redirect,back
+     */
+    public function login(LoginRequest $request)
+    {
+        // フォーム情報の取得
+        $form = $request->only(['email', 'password']);
+
+        // ログインチェック
+        if (Auth::attempt($form)) {
+            // ユーザー情報取得
+            $user = User::where('email', $form['email'])->first();
+            // メール認証が未完了の場合
+            if (empty($user['email_verified_at'])) {
+                return back()->with('danger', 'メール認証が未完了です');
+            } else {
+                // セッションID再生成
+                $request->session()->regenerate();
+                session()->put('visit', 0);
+                return redirect('/')->with('success', 'ログインしました');
+            }
+        }
+    
+        // ログイン情報と一致しない場合
+        return back()->with('danger', '登録情報が見つかりませんでした');
+    }
+
+    /**
+     * view表示
+     * パスワード変更送信ページ
+     * @param void
+     * @return view
+     */
+    public function indexReset()
+    {
+        return view('auth.reset');
+    }
+
+    /**
+     * パスワード変更送信処理
+     * @param object $request
+     * @return back
+     */
+    public function sendReset(EmailRequest $request)
+    {
+        // フォーム情報の取得
+        $email = $request->only('email');
+
+        // トークン生成
+        $token = bin2hex(random_bytes(32));
+        
+        // トークンを挿入
+        User::where('email', $email)->first()->update([
+            'remember_token' => Hash::make($token),
+        ]);
+        
+        // メール送信
+        Mail::send(New ResetMail($email, $token));
+
+        // メールの二重送信防止処理
+        $request->session()->regenerateToken();
+        
+        return back()->with('success', '確認メールを送信しました');
+    }
+
+    /**
+     * view表示：パスワード変更ページ
+     * @param object $request
+     * @param view
+     */
+    public function indexResetPassword(Request $request)
+    {
+        // トークンを取得
+        $token = $request->token;
+        
+        // トークンがあるかどうかの確認
+        if (empty($token)) {
+            return redirect('/reset');
+        }
+
+        // トークンをセッションに格納
+        session()->put('token', $token);
+
+        return view('auth.reset_password');
+    }
+
+    /**
+     * パスワード変更処理
+     * @param object $request
+     * @return back
+     */
+    public function updateResetPassword(ResetRequest $request)
+    {
+        // フォーム情報の取得
+        $password = $request->password;
+        $confirm_password = $request->password_confirmation;
+
+        // パスワードと確認用パスワードが異なっている場合
+        if ($password !== $confirm_password) {
+            return back()->with('danger', 'パスワードと確認用パスワードが異なっています');
+        }
+
+        // ユーザー情報を全件取得
+        $users = User::all();
+
+        // ユーザー情報のトークンを照合
+        foreach($users as $user) {
+            if (Hash::check(session('token'), $user['remember_token'])) {
+                // update処理
+                $user->update([
+                    'password' => Hash::make($password),
+                ]);
+                return redirect('/login')->with('success', 'パスワードを変更しました');
+            }
+        }
+
+        return back()->with('danger', 'パスワードの変更に失敗しました');
     }
 
     /**
