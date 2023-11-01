@@ -9,11 +9,11 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class VerifyMail extends Mailable
+class ResetMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    // 必要な変数の定義
+    // 必要情報の定義
     protected $email;
     protected $token;
 
@@ -32,7 +32,7 @@ class VerifyMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: '認証メール',
+            subject: 'パスワード変更確認メール',
             to: $this->email,
         );
     }
@@ -43,7 +43,7 @@ class VerifyMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'auth.send_email',
+            view: 'auth.reset_email',
             with: [
                 'token' => $this->token,
             ]

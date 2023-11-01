@@ -25,12 +25,6 @@ Route::get('/register', [UserController::class, 'indexRegister']);
 // 新規登録処理
 Route::post('/register', [UserController::class, 'register']);
 
-// view表示：ログインページ
-Route::get('/login', [UserController::class, 'indexLogin'])->name('login');
-
-// ログイン処理
-Route::post('/login', [UserController::class, 'login']);
-
 // view表示：認証メール送信済ページ
 Route::get('/verify/email', [UserController::class, 'indexMail']);
 
@@ -39,6 +33,24 @@ Route::get('/resend/email', [UserController::class, 'resendMail']);
 
 // view表示：新規登録完了ページ
 Route::get('/thanks', [UserController::class, 'indexThanks']);
+
+// view表示：ログインページ
+Route::get('/login', [UserController::class, 'indexLogin'])->name('login');
+
+// ログイン処理
+Route::post('/login', [UserController::class, 'login']);
+
+// view表示：パスワード変更送信ページ
+Route::get('/reset', [UserController::class, 'indexReset']);
+
+// パスワード変更メール送信処理
+Route::post('/reset', [UserController::class, 'sendReset']);
+
+// view表示：パスワード変更ページ
+Route::get('/reset/password', [UserController::class, 'indexResetPassword']);
+
+// パスワード変更処理
+Route::post('/reset/password', [UserController::class, 'updateResetPassword']);
 
 // view表示：トップページ
 Route::get('/', [JobController::class, 'indexTop']);

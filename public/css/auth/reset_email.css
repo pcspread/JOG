@@ -1,0 +1,46 @@
+@charset "UTF-8";
+
+.header {
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #006695;
+}
+
+.email-title {
+    padding-left: 15px;
+    color: #FFF;
+    font-size: 24px;
+}
+
+.email-content {
+    width: 100%;
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 15px;
+}
+
+.email-content__text {
+    padding-bottom: 15px;
+}
+
+.email-click {
+    display: block;
+    max-width: 250px;
+    width: 100%;
+    height: 45px;
+    line-height: 45px;
+    margin: 15px auto;
+    border: none;
+    border-radius: 3px;
+    background-color: #009FC3;
+    box-shadow: 0 0 1px 1px #009FC3;
+    color: #FFF;
+    text-align: center;
+    text-decoration: none;
+}
+
+.email-click:hover {
+    opacity: .7;
+}
