@@ -55,7 +55,7 @@ Mailpit(local環境)<br />
 ![Alt text](image-3.png)
 ![Alt text](image-4.png)
 
-## ER 図    
+## ER 図
 ![Alt text](image-6.png)
 
 ## 画面遷移図
