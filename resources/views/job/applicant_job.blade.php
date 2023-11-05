@@ -55,7 +55,7 @@
         </div>
         <div class="applicant-item">
             <label class="applicant-item__title" for="age">年齢</label>
-            <input class="applicant-item__content" id="age" type="text" name="age" value="{{ old('age') }}" placeholder="入力欄">
+            <input class="applicant-item__content" id="age" type="text" name="age" value="{{ old('age') }}" placeholder="例）22">
             <p class="applicant-item__error">
                 @error('age')
                     {{ $errors->first('age') }}
@@ -73,7 +73,7 @@
         </div>
         <div class="applicant-item">
             <label class="applicant-item__title" for="postcode">郵便番号</label>
-            <input class="applicant-item__content" id="postcode" type="text" name="postcode" value="{{ old('postcode') }}" placeholder="入力欄">
+            <input class="applicant-item__content" id="postcode" type="text" name="postcode" value="{{ old('postcode') }}" placeholder="例）111-1111">
             <p class="applicant-item__error">
                 @error('postcode')
                     {{ $errors->first('postcode') }}
