@@ -14,7 +14,6 @@
     @yield('css')
     <script src="{{ asset('js/layouts/default.js') }}" defer></script>
     @yield('js')
-    <script src="{{ asset('js/default.js') }}" defer></script>
 </head>
 <body>
     <header class="header" id="top">
