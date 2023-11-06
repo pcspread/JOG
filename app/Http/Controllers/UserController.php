@@ -169,18 +169,22 @@ class UserController extends Controller
         // フォーム情報の取得
         $form = $request->only(['email', 'password']);
 
-        // ログインチェック
-        if (Auth::attempt($form)) {
-            // ユーザー情報取得
-            $user = User::where('email', $form['email'])->first();
+        // ユーザー情報取得
+        $user = User::where('email', $form['email'])->first();
+
+        // ユーザー情報がある場合
+        if (!empty($user)) {
             // メール認証が未完了の場合
             if (empty($user['email_verified_at'])) {
                 return back()->with('danger', 'メール認証が未完了です');
             } else {
-                // セッションID再生成
-                $request->session()->regenerate();
-                session()->put('visit', 0);
-                return redirect('/')->with('success', 'ログインしました');
+                // ログインチェック
+                if (Auth::attempt($form)) {
+                    // セッションID再生成
+                    $request->session()->regenerate();
+                    session()->put('visit', 0);
+                    return redirect('/')->with('success', 'ログインしました');
+                }
             }
         }
     
