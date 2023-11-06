@@ -11,7 +11,7 @@
         <h1 class="reset-title">パスワード変更</h1>
         <div class="reset-item">
             <label class="reset-item__title" for="password">パスワード</label>
-            <input class="reset-item__input" id="password" type="password" name="password" autofocus>
+            <input class="reset-item__input" id="password" type="password" name="password" placeholder="入力欄" autofocus>
             <p class="reset-item__error">
                 @error('password')
                     {{ $errors->first('password') }}
@@ -20,7 +20,7 @@
         </div>
         <div class="reset-item">
             <label class="reset-item__title" for="password">確認用パスワード</label>
-            <input class="reset-item__input" id="password" type="password" name="password_confirmation">
+            <input class="reset-item__input" id="password" type="password" name="password_confirmation" placeholder="入力欄">
             <p class="reset-item__error">
                 @error('password_confirmation')
                     {{ $errors->first('password_confirmation') }}

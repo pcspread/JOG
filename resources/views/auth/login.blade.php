@@ -11,7 +11,7 @@
     @csrf
         <div class="login-item">
             <label class="login-item__title" for="email">メールアドレス</label>
-            <input class="login-item__input" id="email" type="text" name="email" value="{{ old('email') }}" autofocus>
+            <input class="login-item__input" id="email" type="text" name="email" value="{{ old('email') }}" placeholder="入力欄" autofocus>
             <p class="login-item__error">
                 @error('email')
                     {{ $errors->first('email') }}
@@ -20,7 +20,7 @@
         </div>
         <div class="login-item">
             <label class="login-item__title" for="password">パスワード</label>
-            <input class="login-item__input" id="password" type="password" name="password">
+            <input class="login-item__input" id="password" type="password" name="password" placeholder="入力欄">
             <p class="login-item__error">
                 @error('password')
                     {{ $errors->first('password') }}
