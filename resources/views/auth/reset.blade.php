@@ -11,7 +11,7 @@
     @csrf
         <div class="reset-item">
             <label class="reset-item__title" for="email">メールアドレス</label>
-            <input class="reset-item__input" id="email" type="text" name="email" value="{{ old('email') }}" autofocus>
+            <input class="reset-item__input" id="email" type="text" name="email" value="{{ old('email') }}" placeholder="入力欄" autofocus>
             <p class="reset-item__error">
                 @error('email')
                     {{ $errors->first('email') }}
