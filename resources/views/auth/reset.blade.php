@@ -6,7 +6,7 @@
 
 @section('content')
 <div class="reset-section">
-    <h1 class="reset-title">パスワード変更メール送信</h1>
+    <h1 class="reset-title">パスワード変更確認メール送信</h1>
     <form class="reset-form" action="/reset" method="POST">
     @csrf
         <div class="reset-item">

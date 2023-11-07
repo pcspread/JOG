@@ -189,7 +189,7 @@ class UserController extends Controller
         }
     
         // ログイン情報と一致しない場合
-        return back()->with('danger', '登録情報が見つかりませんでした');
+        return back()->with('danger', '登録者情報が見つかりませんでした');
     }
 
     /**
@@ -216,8 +216,16 @@ class UserController extends Controller
         // トークン生成
         $token = bin2hex(random_bytes(32));
         
+        // ユーザーデータを取得
+        $user = User::where('email', $email)->first();
+
+        // ユーザーデータが無い場合
+        if (empty($user)) {
+            return back()->with('danger', '登録者情報が見つかりませんでした');
+        }
+
         // トークンを挿入
-        User::where('email', $email)->first()->update([
+        $user->update([
             'remember_token' => Hash::make($token),
         ]);
         
@@ -227,7 +235,7 @@ class UserController extends Controller
         // メールの二重送信防止処理
         $request->session()->regenerateToken();
         
-        return back()->with('success', '確認メールを送信しました');
+        return back()->with('success', 'パスワード変更確認メールを送信しました');
     }
 
     /**
@@ -258,30 +266,33 @@ class UserController extends Controller
      */
     public function updateResetPassword(ResetRequest $request)
     {
-        // フォーム情報の取得
-        $password = $request->password;
-        $confirm_password = $request->password_confirmation;
-
-        // パスワードと確認用パスワードが異なっている場合
-        if ($password !== $confirm_password) {
-            return back()->with('danger', 'パスワードと確認用パスワードが異なっています');
-        }
-
-        // ユーザー情報を全件取得
-        $users = User::all();
-
-        // ユーザー情報のトークンを照合
-        foreach($users as $user) {
-            if (Hash::check(session('token'), $user['remember_token'])) {
-                // update処理
-                $user->update([
-                    'password' => Hash::make($password),
-                ]);
-                return redirect('/login')->with('success', 'パスワードを変更しました');
+        // トークンがある場合
+        if (!empty(session('token'))) {
+            // フォーム情報の取得
+            $password = $request->password;
+            $confirm_password = $request->password_confirmation;
+    
+            // パスワードと確認用パスワードが異なっている場合
+            if ($password !== $confirm_password) {
+                return back()->with('danger', 'パスワードと確認用パスワードが異なっています');
+            }
+    
+            // ユーザー情報を全件取得
+            $users = User::all();
+    
+            // ユーザー情報のトークンを照合
+            foreach($users as $user) {
+                if (Hash::check(session('token'), $user['remember_token'])) {
+                    // update処理
+                    $user->update([
+                        'password' => Hash::make($password),
+                    ]);
+                    return redirect('/login')->with('success', 'パスワードを変更しました');
+                }
             }
         }
 
-        return back()->with('danger', 'パスワードの変更に失敗しました');
+        return redirect('/reset')->with('danger', 'パスワード変更にはメール確認が必要です');
     }
 
     /**
