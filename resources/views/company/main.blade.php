@@ -49,6 +49,11 @@ use App\Models\Applicant;
             @endif
         </div>
         @endforeach
+        @if (count($jobs) === 0)
+        <div class="job-card__none">
+            求人情報がございません。
+        </div>
+        @endif
     </div>
 </div>
 @endsection
