@@ -38,7 +38,7 @@
         </div>
         <div class="applicant-item">
             <label class="applicant-item__title" for="name">企業名</label>
-            <input class="applicant-item__content" id="name" type="text" name="name" value="{{ old('name') }}" placeholder="入力欄">
+            <input class="applicant-item__content" id="name" type="text" name="name" value="{{ old('name') }}" placeholder="例）イベントカンパニー">
             <p class="applicant-item__error">
                 @error('name')
                     {{ $errors->first('name') }}
@@ -47,7 +47,7 @@
         </div>
         <div class="applicant-item">
             <label class="applicant-item__title" for="content">仕事の内容</label>
-            <textarea class="applicant-item__content textarea" name="content" id="content" cols="30" rows="7" placeholder="入力欄">{{ old('content') }}</textarea>
+            <textarea class="applicant-item__content textarea" name="content" id="content" cols="30" rows="7" placeholder="例）イベント会場の設営、撤去、片付けを行ってもらいます。">{{ old('content') }}</textarea>
             <p class="applicant-item__error">
                 @error('content')
                     {{ $errors->first('content') }}
@@ -56,7 +56,7 @@
         </div>
         <div class="applicant-item">
             <label class="applicant-item__title" for="email">メールアドレス</label>
-            <input class="applicant-item__content" id="email" type="text" name="email" value="{{ old('email') }}" placeholder="入力欄">
+            <input class="applicant-item__content" id="email" type="text" name="email" value="{{ old('email') }}" placeholder="例）taro@example.com">
             <p class="applicant-item__error">
                 @error('email')
                     {{ $errors->first('email') }}
@@ -65,7 +65,7 @@
         </div>
         <div class="applicant-item">
             <label class="applicant-item__title" for="tel">電話番号</label>
-            <input class="applicant-item__content" id="tel" type="text" name="tel" value="{{ old('tel') }}" placeholder="入力欄">
+            <input class="applicant-item__content" id="tel" type="text" name="tel" value="{{ old('tel') }}" placeholder="例）01012345678">
             <p class="applicant-item__error">
                 @error('tel')
                     {{ $errors->first('tel') }}
@@ -74,7 +74,7 @@
         </div>
         <div class="applicant-item">
             <label class="applicant-item__title" for="salary">給料</label>
-            <input class="applicant-item__content" id="salary" type="text" name="salary" value="{{ old('salary') }}" placeholder="入力欄">
+            <input class="applicant-item__content" id="salary" type="text" name="salary" value="{{ old('salary') }}" placeholder="例）時給1000～1500円">
             <p class="applicant-item__error">
                 @error('salary')
                     {{ $errors->first('salary') }}
@@ -83,7 +83,7 @@
         </div>
         <div class="applicant-item">
             <label class="applicant-item__title" for="time">勤務時間</label>
-            <input class="applicant-item__content" id="time" type="text" name="time" value="{{ old('time') }}" placeholder="入力欄">
+            <input class="applicant-item__content" id="time" type="text" name="time" value="{{ old('time') }}" placeholder="例）9:00～12:00">
             <p class="applicant-item__error">
                 @error('time')
                     {{ $errors->first('time') }}
@@ -92,7 +92,7 @@
         </div>
         <div class="applicant-item">
             <label class="applicant-item__title" for="shift">シフト</label>
-            <input class="applicant-item__content" id="shift" type="text" name="shift" value="{{ old('shift') }}" placeholder="入力欄">
+            <input class="applicant-item__content" id="shift" type="text" name="shift" value="{{ old('shift') }}" placeholder="例）週1日～">
             <p class="applicant-item__error">
                 @error('shift')
                     {{ $errors->first('shift') }}
@@ -101,7 +101,7 @@
         </div>
         <div class="applicant-item">
             <label class="applicant-item__title" for="location">勤務場所</label>
-            <input class="applicant-item__content" id="location" type="text" name="location" value="{{ old('location') }}" placeholder="入力欄">
+            <input class="applicant-item__content" id="location" type="text" name="location" value="{{ old('location') }}" placeholder="例）東京都千代田区周辺">
             <p class="applicant-item__error">
                 @error('location')
                     {{ $errors->first('location') }}
