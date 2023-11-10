@@ -182,7 +182,7 @@ class UserController extends Controller
                 if (Auth::attempt($form)) {
                     // セッションID再生成
                     $request->session()->regenerate();
-                    session()->put('visit', 0);
+                    session()->put('visit', 1);
                     return redirect('/')->with('success', 'ログインしました');
                 }
             }
