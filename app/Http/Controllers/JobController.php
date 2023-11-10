@@ -94,12 +94,8 @@ class JobController extends Controller
      */
     public function showJob($id)
     {
-        // 訪問件数調査
-        $visit = session('visit') + 1;
-        session()->put('visit', $visit);
-        
         // 訪問件数が1の場合
-        if (session('visit') === 1) {
+        if (!empty(session('visit'))) {
             Job::find($id)->increment('visit', 1);
         }
         
