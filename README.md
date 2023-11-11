@@ -88,3 +88,6 @@ GitHub<br />
 ・2件<br />
 ・メールアドレス：test6@test.com～test7@test.com<br />
 ・パスワード　　：test1111(共通)<br />
+
+■ 企業ダミーデータ<br />
+・20件<br />
