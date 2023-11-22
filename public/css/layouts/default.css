@@ -169,7 +169,7 @@ upper
     }
 
     .header-nav__list {
-        position: absolute;
+        position: fixed;
         top: 0;
         right: 0;
         height: 100%;
@@ -200,5 +200,11 @@ upper
 
     .burger {
         display: flex;
+    }
+
+    .position {
+        position: fixed;
+        top: 0;
+        right: 0;
     }
 }
