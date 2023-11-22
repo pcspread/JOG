@@ -13,6 +13,7 @@ function openMenu() {
         })
         nav.classList.toggle('append');
         mask.classList.toggle('append');
+        burger.classList.toggle('position');
     });
 }
 openMenu();
