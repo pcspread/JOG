@@ -15,3 +15,20 @@ function changeColor() {
     });
 }
 changeColor();
+
+/**
+ * カードのホバー時の設定
+ */
+function hoverCard() {
+    const cards = document.querySelectorAll('.job-click');
+
+    cards.forEach(card => {
+        card.addEventListener('mouseover', function () {
+            card.parentElement.style.backgroundColor = '#CCC';
+        });
+        card.addEventListener('mouseleave', function () {
+            card.parentElement.style.backgroundColor = '#EEE';
+        });
+    });
+}
+hoverCard();
