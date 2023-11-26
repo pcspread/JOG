@@ -6,7 +6,6 @@
 
 .jobs-wrapper {
     margin: 15px;
-    min-width: 700px;
 }
 
 .main-title__group {
@@ -14,12 +13,12 @@
     justify-content: left;
     align-items: center;
     margin: 5px 0 0 15px;
-    min-width: 650px;
 }
 
 .main-title__button {
     margin-left: 52px;
-    width: 150px;
+    width: 100%;
+    max-width: 150px;
     height: 32px;
     line-height: 28px;
     box-shadow: 0 0 1px 1px #FF5555;
@@ -74,7 +73,7 @@
 .applicant-table {
     margin: 15px 0;
     width: 70%;
-    min-width: 650px;
+    width: 100%;
     table-layout: fixed;
 }
 
@@ -110,11 +109,13 @@
 
 .applicant-content {
     padding: 5px;
+    word-wrap: break-word;
 }
 
 .applicant-button {
     display: block;
-    width: 120px;
+    width: 100%;
+    max-width: 120px;
     height: 32px;
     line-height: 28px;
     border-radius: 3px;
@@ -128,4 +129,20 @@
 .applicant-button:hover {
     cursor: pointer;
     opacity: .7;
+}
+
+@media screen and (max-width: 480px) {
+    .main-title__button {
+        margin: 5px;
+    }
+
+    .job-count {
+        display: block;
+    }
+}
+
+@media screen and (max-width:302px) {
+    .applicant-button {
+        height: auto;
+    }
 }
