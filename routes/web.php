@@ -101,6 +101,9 @@ Route::middleware(['auth', 'verified'])->group(function() {
         
         // 求人詳細更新処理
         Route::post('/detail/{id}/edit', [CompanyController::class, 'updateCompany']);
+
+        // 求人削除処理
+        Route::get('/detail/{id}/delete', [CompanyController::class, 'destroyCompany']);
         
         // view表示：求人作成ページ
         Route::get('/create', [CompanyController::class, 'createJob']);

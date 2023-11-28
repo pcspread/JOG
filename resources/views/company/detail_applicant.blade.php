@@ -9,7 +9,7 @@
     <div class="top-wrapper">
         <div class="left-group">
             <div class="left-group__top-block">
-                <h1 class="applicant-name">中山太郎</h1>
+                <h1 class="applicant-name">{{ $applicant['name'] }}</h1>
                 <div class="top-block__buttons">
                     @if (!empty($applicant) && is_null($applicant['result']))
                     <form class="top-block__form" action="/company/list/{{ $applicant['id'] }}" method="POST">
