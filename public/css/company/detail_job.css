@@ -41,8 +41,23 @@
     text-decoration: none;
 }
 
+.detail-delete {
+    display: block;
+    width: 120px;
+    height: 32px;
+    line-height: 28px;
+    margin-left: 15px;
+    border-radius: 5px;
+    background-color: #60CCAA;
+    box-shadow: 0 0 1px 1px #60CCAA;
+    color: #FFF;
+    font-size: 18px;
+    text-decoration: none;
+}
+
 .detail-back:hover,
-.detail-edit:hover {
+.detail-edit:hover,
+.detail-delete:hover {
     opacity: .7;
 }
 
@@ -97,5 +112,18 @@
 
     .job-wrapper {
         width: 95%;
+    }
+}
+
+@media screen and (max-width: 440px) {
+    .detail-buttons {
+        display: block;
+    }
+
+    .detail-back,
+    .detail-edit,
+    .detail-delete {
+        width: 80%;
+        margin: 5px 5px 5px 15px;
     }
 }

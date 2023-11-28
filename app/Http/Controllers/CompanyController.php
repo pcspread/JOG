@@ -141,6 +141,19 @@ class CompanyController extends Controller
     }
 
     /**
+     * 求人削除処理
+     * @param int $id
+     * @return redirect
+     */
+    public function destroyCompany($id)
+    {
+        // delete処理
+        Job::find($id)->delete();
+
+        return redirect('/company')->with('success', '削除が完了しました');
+    }
+
+    /**
      * view表示
      * 求人作成ページ
      * @param void

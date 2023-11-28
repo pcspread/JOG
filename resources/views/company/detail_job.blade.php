@@ -4,12 +4,17 @@
 <link rel="stylesheet" href="{{ asset('css/company/detail_job.css') }}">
 @endsection
 
+@section('js')
+<script src="{{ asset('js/company/detail_job.js') }}" defer></script>
+@endsection
+
 @section('content')
 <div class="detail-section">
     <div class="top-group">
         <h1 class="detail-title">{{ $job->genre['name'] }}</h1>
         <div class="detail-buttons">
             <a class="detail-edit" href="/company/detail/{{ $job['id'] }}/edit">修正する</a>
+            <a class="detail-delete" href="/company/detail/{{ $job['id'] }}/delete" onclick="return confirmDel()">削除する</a>
             <a class="detail-back" href="/company">戻る</a>
         </div>
     </div>
