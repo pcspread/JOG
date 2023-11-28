@@ -4,6 +4,10 @@
 <link rel="stylesheet" href="{{ asset('css/job/mypage.css') }}">
 @endsection
 
+@section('js')
+<script src="{{ asset('js/job/mypage.js') }}" defer></script>
+@endsection
+
 @section('content')
 <div class="mypage-section">
     <h1 class="mypage-title">マイページ</h1>
